@@ -448,18 +448,20 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
     'Vedi? Non dovevi nemmeno pensarci.',
   ];
 
-  // Build reels
+  // Build reels — use 4 sets so target position never exceeds total reel height
+  const ITEM_H = 80, SETS = 4;
   [0, 1, 2].forEach(i => {
     const inner = document.getElementById(`reel-inner-${i}`);
     if (!inner) return;
-    // Fill with shuffled categories x3 for scroll effect
-    const items = [...categories, ...categories, ...categories];
-    items.forEach(c => {
-      const div = document.createElement('div');
-      div.className = 'slot-item';
-      div.innerHTML = `<span class="slot-item-emoji">${c.emoji}</span><span>${c.name}</span>`;
-      inner.appendChild(div);
-    });
+    for (let s = 0; s < SETS; s++) {
+      categories.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'slot-item';
+        div.innerHTML = '<span class="slot-item-emoji">' + c.emoji + '</span><span>' + c.name + '</span>';
+        inner.appendChild(div);
+      });
+    }
+    inner.style.cssText = 'transition:none;transform:translateY(0)';
   });
 
   let spinning = false;
@@ -470,37 +472,74 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
     btn.disabled = true;
     resultEl.className = 'slot-result';
     resultEl.textContent = '';
+    [0,1,2].forEach(i => document.getElementById('reel-'+i).classList.remove('win-reel'));
 
-    const chosen = [0, 1, 2].map(() => Math.floor(Math.random() * categories.length));
+    const chosen = [0,1,2].map(() => Math.floor(Math.random() * categories.length));
 
-    [0, 1, 2].forEach((i, idx) => {
-      const inner = document.getElementById(`reel-inner-${i}`);
+    [0,1,2].forEach((i, idx) => {
+      const inner = document.getElementById('reel-inner-'+i);
       if (!inner) return;
-      const targetIdx = categories.length + chosen[idx]; // second set
-      const offset = -(targetIdx * 80);
-      // Random extra spins for drama
-      const spins = (3 + idx) * categories.length * 80;
-      inner.style.transition = `transform ${0.7 + idx * 0.25}s cubic-bezier(0.23,1,0.32,1)`;
-      inner.style.transform = `translateY(${offset - spins}px)`;
-      // After animation, snap to correct position without transition
-      setTimeout(() => {
-        inner.style.transition = 'none';
-        inner.style.transform = `translateY(${offset}px)`;
-        document.getElementById(`reel-${i}`).classList.add('win-reel');
-      }, (0.7 + idx * 0.25) * 1000 + 50);
+      // Reset without transition and force reflow
+      inner.style.transition = 'none';
+      inner.style.transform = 'translateY(0)';
+      void inner.offsetHeight; // flush
+      // Target: 3 full cycles + chosen slot (max 3760px, total height 4*12*80=3840 — safe)
+      const targetPx = (3 * categories.length + chosen[idx]) * ITEM_H;
+      const dur = 0.75 + idx * 0.22;
+      inner.style.transition = 'transform ' + dur + 's cubic-bezier(0.17,0.84,0.44,1)';
+      inner.style.transform = 'translateY(-' + targetPx + 'px)';
+      setTimeout(() => document.getElementById('reel-'+i).classList.add('win-reel'), dur * 1000 - 60);
     });
 
-    const totalDuration = (0.7 + 2 * 0.25) * 1000 + 200;
+    const total = (0.75 + 2 * 0.22) * 1000 + 300;
     setTimeout(() => {
-      spinning = false;
-      btn.disabled = false;
+      spinning = false; btn.disabled = false;
       const names = chosen.map(idx => categories[idx].name).join(', ');
-      const funny = funnyResults[Math.floor(Math.random() * funnyResults.length)];
-      resultEl.textContent = `${names} — ${funny}`;
+      resultEl.textContent = names + ' — ' + funnyResults[Math.floor(Math.random() * funnyResults.length)];
       resultEl.className = 'slot-result win';
-    }, totalDuration);
+    }, total);
   });
 })();
+
+// ─── HIGHLIGHT TODAY IN STORE HOURS ───
+(function highlightToday() {
+  const days = ['Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'];
+  const today = days[new Date().getDay()];
+  const isWeekday = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato'].includes(today);
+  document.querySelectorAll('.or-row').forEach(row => {
+    const txt = (row.querySelector('span') || {}).textContent || '';
+    if (
+      txt.includes(today) ||
+      txt.includes('Lunedì \u2013 Domenica') ||
+      (txt.includes('Lun \u2013 Sab') && isWeekday)
+    ) row.classList.add('today');
+  });
+})();
+
+// ─── SAVINGS BAR ANIMATION ───
+(function initSavings() {
+  const section = document.getElementById('risparmio');
+  if (!section) return;
+  const obs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    section.querySelectorAll('.savings-bar-fill').forEach(bar => {
+      bar.style.width = bar.dataset.pct + '%';
+    });
+    const numEl = section.querySelector('.savings-total-num');
+    if (numEl) {
+      const target = parseInt(numEl.dataset.target || '62', 10);
+      const start = performance.now();
+      (function tick(now) {
+        const t = Math.min((now - start) / 1200, 1);
+        numEl.textContent = Math.round(target * t) + '%';
+        if (t < 1) requestAnimationFrame(tick);
+      })(start);
+    }
+    obs.unobserve(section);
+  }, { threshold: 0.2 });
+  obs.observe(section);
+})();
+
 
 
 

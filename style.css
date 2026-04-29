@@ -1003,6 +1003,57 @@ html,body{overflow-x:hidden;}
 .slot-result.win{color:var(--gold);}
 .slot-result.nudge{color:rgba(255,255,255,.55);}
 
+/* ─── STORE HOURS TODAY HIGHLIGHT ─── */
+.or-row.today{background:rgba(212,43,43,.06);border-radius:4px;padding:.15rem .4rem;margin:0 -.4rem;}
+.or-row.today .or-time{color:var(--red);font-weight:700;}
+.or-row.today span:first-child{font-weight:700;}
+
+/* ─── SAVINGS SECTION ─── */
+#risparmio{padding-block:clamp(4rem,10vw,8rem);background:var(--black);color:var(--white);border-top:2px solid rgba(255,255,255,.06);}
+#risparmio h2{margin-bottom:.5rem;color:var(--white);}
+#risparmio h2 em{color:var(--red);font-style:normal;}
+#risparmio .label{margin-bottom:.5rem;}
+.savings-intro{color:rgba(255,255,255,.5);font-size:1rem;line-height:1.75;margin-bottom:2.5rem;max-width:580px;}
+.savings-table{display:flex;flex-direction:column;gap:1.5rem;margin-bottom:2.5rem;}
+.savings-row{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1.25rem 1.5rem;}
+.savings-product{font-family:var(--font-h);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--white);margin-bottom:1rem;}
+.savings-bars{display:flex;flex-direction:column;gap:.6rem;}
+.savings-bar-wrap{display:flex;align-items:center;gap:.75rem;}
+.savings-bar-label{font-family:var(--font-h);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;flex-shrink:0;width:80px;}
+.savings-bar-them{color:rgba(255,255,255,.3);}
+.savings-bar-us{color:var(--red);}
+.savings-bar{position:relative;flex:1;height:10px;border-radius:50px;background:rgba(255,255,255,.06);overflow:visible;}
+.savings-bar-them-bar .savings-bar-fill{background:rgba(255,255,255,.2);height:100%;border-radius:50px;transition:width 1.2s cubic-bezier(0.23,1,0.32,1);}
+.savings-bar-us-bar .savings-bar-fill{background:var(--red);height:100%;border-radius:50px;transition:width 1.2s cubic-bezier(0.23,1,0.32,1);}
+.savings-price{position:absolute;right:-3.5rem;top:50%;transform:translateY(-50%);font-family:var(--font-h);font-size:.75rem;font-weight:700;white-space:nowrap;color:rgba(255,255,255,.45);}
+.savings-bar-us-bar .savings-price{color:var(--white);}
+.savings-bar-us-bar .savings-price em{color:var(--red);font-style:normal;margin-left:.25rem;}
+.savings-total{
+  text-align:center;padding:1.5rem;
+  border:2px solid rgba(212,43,43,.3);border-radius:8px;
+  font-family:var(--font-h);font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:rgba(255,255,255,.5);line-height:1.6;
+}
+.savings-total-num{
+  font-size:2.5rem;color:var(--red);display:inline-block;
+  font-variant-numeric:tabular-nums;
+}
+.savings-total em{color:rgba(255,255,255,.35);font-style:italic;display:block;font-size:.85rem;margin-top:.3rem;text-transform:none;letter-spacing:.02em;font-weight:400;}
+
+/* Mobile savings: hide price labels, smaller bars */
+@media(max-width:600px){
+  .savings-bar-label{width:60px;font-size:.58rem;}
+  .savings-price{font-size:.65rem;right:-3rem;}
+  .savings-row{padding:.9rem 1rem;}
+}
+
+/* ─── NAV STORE STATUS - mobile bug fix ─── */
+@media(max-width:768px){
+  .store-status{display:none !important;}
+  .nav-inner{overflow:hidden;}
+}
+
+
 
 
 

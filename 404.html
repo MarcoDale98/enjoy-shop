@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Pagina non trovata | Enjoy Shop</title>
+  <meta name="description" content="Questa pagina non esiste. Come il nostro e-commerce. Ma il negozio sì — vieni a trovarci!">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <style>
+    .e404-page{
+      min-height:100vh;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:2rem var(--pad);
+      background:var(--cream);
+      position:relative;overflow:hidden;
+    }
+    .e404-num{
+      font-family:var(--font-h);font-weight:800;
+      font-size:clamp(8rem,25vw,18rem);
+      line-height:.9;letter-spacing:-.05em;
+      color:var(--black);
+      position:relative;
+    }
+    .e404-num::after{
+      content:'404';
+      position:absolute;inset:0;
+      color:transparent;
+      -webkit-text-stroke:2px var(--red);
+      transform:translate(6px,6px);
+      z-index:-1;
+    }
+    .e404-emoji{font-size:3rem;margin-bottom:1rem;animation:waFloat 3s ease-in-out infinite;}
+    .e404-title{font-family:var(--font-h);font-size:clamp(1.5rem,5vw,2.8rem);font-weight:800;text-transform:uppercase;margin:1rem 0 .5rem;}
+    .e404-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 2rem;}
+    .e404-sub em{color:var(--red);font-style:normal;font-weight:600;}
+    .e404-sticker{
+      display:inline-block;
+      font-family:var(--font-h);font-weight:800;font-size:.9rem;
+      background:var(--gold);color:var(--black);
+      padding:.4rem 1rem;border-radius:3px;
+      transform:rotate(-2deg);
+      margin-bottom:2rem;
+    }
+    .e404-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+    .e404-bg-text{
+      position:fixed;bottom:-2rem;left:50%;transform:translateX(-50%);
+      font-family:var(--font-h);font-size:clamp(5rem,20vw,14rem);font-weight:800;
+      color:rgba(0,0,0,.04);white-space:nowrap;letter-spacing:-.05em;pointer-events:none;
+      text-transform:uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="e404-page">
+    <div class="e404-bg-text">PAGINA NON TROVATA</div>
+    <div class="e404-emoji">🔍</div>
+    <div class="e404-num">404</div>
+    <div class="e404-title">Questa pagina non esiste.</div>
+    <div class="e404-sticker">Come il nostro e-commerce. 🤷</div>
+    <p class="e404-sub">
+      Hai cercato qualcosa che non c'è.<br>
+      Ma il negozio esiste eccome — con <em>10.000+ articoli</em> che ti aspettano.<br>
+      Forse quello che cerchi è lì, fisicamente, sullo scaffale.
+    </p>
+    <div class="e404-actions">
+      <a href="/" class="btn btn-red btn-mag" id="back-home-btn">← Torna alla Home</a>
+      <a href="/#negozi" class="btn btn-outline btn-mag" id="find-store-btn">Trovaci in negozio →</a>
+    </div>
+  </div>
+  <script>
+    // Magnetic buttons (simplified, no cursor)
+    document.querySelectorAll('.btn-mag').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.25;
+        const y = (e.clientY - r.top - r.height / 2) * 0.25;
+        btn.style.transform = `translate(${x}px,${y}px)`;
+      });
+      btn.addEventListener('mouseleave', () => btn.style.transform = '');
+    });
+  </script>
+</body>
+</html>
