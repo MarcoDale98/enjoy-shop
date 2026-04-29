@@ -752,5 +752,99 @@ body::after{
   color:var(--gold);font-weight:700;
 }
 
+/* ═══ PICKUP SECTION ═══ */
+.pickup-section{
+  padding-block:clamp(4rem,10vw,8rem);
+  background:var(--black);color:var(--white);
+  border-top:2px solid rgba(255,255,255,.06);
+}
+.pickup-section .label{margin-bottom:.5rem;}
+.pickup-section h2{font-size:clamp(2.5rem,6vw,5rem);margin-bottom:.5rem;}
+.pickup-section h2 em{color:var(--gold);font-style:normal;}
+.pickup-intro{
+  color:rgba(255,255,255,.5);font-size:1.05rem;line-height:1.75;
+  margin-bottom:3rem;max-width:640px;
+}
+.pickup-cards-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.5rem;
+}
+@media(min-width:768px){.pickup-cards-grid{grid-template-columns:1fr 1fr;}}
+
+.pickup-card{
+  border-radius:8px;padding:2rem;
+  border:1.5px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  transition:transform .3s var(--ease),box-shadow .3s;
+}
+.pickup-card:hover{transform:translateY(-4px);}
+.pickup-card-amazon{border-color:rgba(255,153,0,.3);background:rgba(255,153,0,.05);}
+.pickup-card-amazon:hover{box-shadow:0 8px 40px rgba(255,153,0,.15);}
+.pickup-card-brt{border-color:rgba(212,43,43,.3);background:rgba(212,43,43,.05);}
+.pickup-card-brt:hover{box-shadow:0 8px 40px rgba(212,43,43,.2);}
+
+.pickup-card-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;}
+.pickup-card-icon{font-size:2.5rem;line-height:1;}
+.pickup-card-brand{font-family:var(--font-h);font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--white);}
+.pickup-card-amazon .pickup-card-brand{color:#FF9900;}
+.pickup-card-brt .pickup-card-brand{color:var(--red);}
+.pickup-card-tag{
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-top:.2rem;
+}
+
+.pickup-card-desc{color:rgba(255,255,255,.6);line-height:1.75;font-size:.95rem;margin-bottom:1rem;}
+
+.pickup-card-irony{
+  font-family:var(--font-h);font-size:1.05rem;font-weight:700;
+  color:rgba(255,255,255,.35);font-style:italic;
+  border-left:3px solid;padding-left:.85rem;margin-bottom:1.25rem;
+  line-height:1.5;
+}
+.pickup-card-amazon .pickup-card-irony{border-color:#FF9900;color:rgba(255,153,0,.6);}
+.pickup-card-brt .pickup-card-irony{border-color:var(--red);color:rgba(212,43,43,.7);}
+
+.pickup-steps{
+  list-style:none;counter-reset:steps;
+  margin-bottom:1.5rem;display:flex;flex-direction:column;gap:.6rem;
+}
+.pickup-steps li{
+  counter-increment:steps;
+  display:flex;align-items:flex-start;gap:.75rem;
+  font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.6;
+}
+.pickup-steps li::before{
+  content:counter(steps);
+  flex-shrink:0;
+  width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-h);font-size:.78rem;font-weight:800;
+  margin-top:.1rem;
+}
+.pickup-card-amazon .pickup-steps li::before{background:#FF9900;color:#000;}
+.pickup-card-brt .pickup-steps li::before{background:var(--red);color:#fff;}
+.pickup-steps li strong{color:var(--white);}
+.pickup-steps li em{color:rgba(255,255,255,.35);font-style:italic;}
+
+/* Branded CTA buttons */
+.btn-amazon{background:#FF9900;color:#111;border-color:#FF9900;}
+.btn-amazon:hover{background:#e68900;border-color:#e68900;color:#111;}
+.btn-brt{background:var(--red);color:#fff;border-color:var(--red);}
+.btn-brt:hover{background:var(--red-dk);border-color:var(--red-dk);}
+
+.pickup-disclaimer{
+  margin-top:2.5rem;
+  padding:1rem 1.25rem;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:6px;
+  color:rgba(255,255,255,.4);
+  font-size:.88rem;
+  line-height:1.6;
+}
+.pickup-disclaimer strong{color:rgba(255,255,255,.6);}
+.pickup-disclaimer a{color:var(--gold);text-decoration:underline;}
+
+
 
 
