@@ -720,4 +720,37 @@ body::after{
 [data-theme="dark"] #onesta{background:#0a0a0a;}
 [data-theme="dark"] .flip-front{background:#111;border-color:rgba(255,255,255,.08);}
 
+/* ─── PICKUP BADGES ─── */
+.pickup-badges{
+  display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap;
+}
+.pickup-badge{
+  flex:1;min-width:120px;
+  display:flex;align-items:center;gap:.55rem;
+  padding:.6rem .8rem;border-radius:6px;
+  border:1.5px solid;
+  transition:transform .25s var(--ease),box-shadow .25s;
+  cursor:default;
+}
+.pickup-badge:hover{transform:translateY(-2px);}
+.pickup-amazon{
+  border-color:#FF9900;background:rgba(255,153,0,.06);
+  color:#FF9900;
+}
+.pickup-amazon:hover{box-shadow:0 4px 16px rgba(255,153,0,.2);}
+.pickup-brt{
+  border-color:#D42B2B;background:rgba(212,43,43,.06);
+  color:var(--red);
+}
+.pickup-brt:hover{box-shadow:0 4px 16px rgba(212,43,43,.2);}
+.pickup-icon{font-size:1.3rem;flex-shrink:0;}
+.pickup-name{font-family:var(--font-h);font-size:.88rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;}
+.pickup-sub{font-size:.68rem;opacity:.7;letter-spacing:.06em;text-transform:uppercase;}
+
+/* MARQUEE HIGHLIGHT ITEM */
+.m-item--highlight{
+  color:var(--gold);font-weight:700;
+}
+
+
 
