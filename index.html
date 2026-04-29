@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enjoy Shop — Articoli per la Casa | Pogliano Milanese e Galliate</title>
+  <meta name="description" content="Enjoy Shop: oltre 10.000 articoli per la casa a Pogliano Milanese e Galliate. Cucina, bagno, pulizia, gadget, arredamento. Prezzi convenienti, aperto tutti i giorni.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.enjoyshop-pogliano.it/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Enjoy Shop — Articoli per la Casa | Pogliano Milanese & Galliate">
+  <meta property="og:description" content="Oltre 10.000 articoli per la casa. Cucina, bagno, pulizia, gadget, arredamento. Prezzi giusti, sempre.">
+  <meta property="og:url" content="https://www.enjoyshop-pogliano.it/">
+  <meta property="og:locale" content="it_IT">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Store",
+        "@id": "https://www.enjoyshop-pogliano.it/#pogliano",
+        "name": "Enjoy Shop Pogliano Milanese",
+        "alternateName": "Yongshun di Xiaohong Hu",
+        "description": "Negozio di articoli per la casa a Pogliano Milanese. Oltre 10.000 prodotti: cucina, bagno, pulizia, gadget, arredamento. Aperto tutti i giorni.",
+        "url": "https://www.enjoyshop-pogliano.it",
+        "telephone": "+390240136992",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Monsignor Paleari 90",
+          "addressLocality": "Pogliano Milanese",
+          "addressRegion": "MI",
+          "postalCode": "20005",
+          "addressCountry": "IT"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 45.5381, "longitude": 8.9078 },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "09:00", "closes": "19:30"
+        }],
+        "priceRange": "€",
+        "areaServed": ["Pogliano Milanese","Parabiago","Nerviano","Rescaldina","Canegrate","Legnano","Rho"]
+      },
+      {
+        "@type": "Store",
+        "@id": "https://www.enjoyshop-pogliano.it/#galliate",
+        "name": "Enjoy Shop Galliate",
+        "alternateName": "Yongshun di Xiaohong Hu",
+        "description": "Negozio di articoli per la casa a Galliate (NO). Cucina, bagno, pulizia, gadget e arredamento a prezzi convenienti.",
+        "url": "https://www.enjoyshop-pogliano.it",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Monte Nero 38",
+          "addressLocality": "Galliate",
+          "addressRegion": "NO",
+          "postalCode": "28066",
+          "addressCountry": "IT"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 45.4774, "longitude": 8.6957 },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "12:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "15:00", "closes": "19:30" }
+        ],
+        "priceRange": "€",
+        "areaServed": ["Galliate","Novara","Trecate","Romentino","Cameri","Oleggio"]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+<div id="progress-bar" aria-hidden="true"></div>
+<div id="splash" role="dialog" aria-label="Caricamento">
+  <div id="splash-logo">🛍️</div>
+  <div id="splash-text">Enjoy Shop</div>
+  <div id="splash-sub">Articoli per la casa</div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav" role="navigation" aria-label="Navigazione principale">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Enjoy Shop — Home">
+      <img src="assets/images/logo.png" alt="Logo Enjoy Shop" width="36" height="36">
+      <span class="nav-logo-text">Enjoy<span>Shop</span></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#chi-siamo">Chi Siamo</a></li>
+      <li><a href="#categorie">Categorie</a></li>
+      <li><a href="#venduti">Prodotti</a></li>
+      <li><a href="#negozi">Negozi</a></li>
+    </ul>
+    <a href="tel:+390240136992" class="nav-cta" id="nav-tel-btn">📞 Chiamaci</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mob-menu" id="mob-menu" role="dialog" aria-label="Menu mobile">
+    <a href="#chi-siamo" class="mob-link">Chi Siamo</a>
+    <a href="#categorie" class="mob-link">Categorie</a>
+    <a href="#venduti" class="mob-link">Prodotti</a>
+    <a href="#negozi" class="mob-link">Negozi</a>
+    <a href="tel:+390240136992" class="mob-link mob-cta">📞 Chiamaci</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" aria-label="Enjoy Shop — Negozio articoli per la casa">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">📍 Pogliano Milanese &amp; Galliate</div>
+      <h1 class="hero-h1 rv"><span class="glitch" data-text="Il negozio">Il negozio</span><br><em>cinese</em>,<br>fatto bene.</h1>
+      <p class="hero-sub rv d1">Oltre 10.000 articoli per cucina, bagno, pulizia, gadget e arredamento. Prezzi giusti, sempre. Due negozi vicini a te.</p>
+      <div class="hero-ctas rv d2">
+        <a href="#categorie" class="btn btn-red btn-mag" id="hero-cat-btn">Scopri le Categorie</a>
+        <a href="#negozi" class="btn btn-outline btn-mag" id="hero-negozi-btn">Trovaci</a>
+      </div>
+      <div class="hero-sticker-row rv d3">
+        <span class="sticker sticker-gold">🇨🇳 Made in China</span>
+        <span class="sticker sticker-black">Come il tuo iPhone</span>
+        <span class="sticker sticker-red">7/7 Aperto</span>
+      </div>
+      <div class="hero-counter-row rv d3">
+        <div class="hero-counter-box">
+          <div class="counter-num" data-target="10000">0</div>
+          <div class="counter-label">Articoli<br>disponibili</div>
+        </div>
+        <div class="hero-counter-box">
+          <div class="counter-num" data-target="2">0</div>
+          <div class="counter-label">Negozi<br>in Italia</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-wrap rv d1">
+      <img src="assets/images/hero-bg.png" alt="Interno negozio Enjoy Shop" fetchpriority="high">
+      <div class="hero-float-badge">10.000+ articoli 🎉</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-bar" aria-hidden="true" role="presentation">
+  <div class="marquee-track">
+    <!-- duplicated for seamless loop -->
+    <span class="m-item">Cucina &amp; Tavola <span class="m-dot">✦</span></span>
+    <span class="m-item">Bagno &amp; Pulizia <span class="m-dot">✦</span></span>
+    <span class="m-item">Gadget &amp; Tech <span class="m-dot">✦</span></span>
+    <span class="m-item">Casa &amp; Camera <span class="m-dot">✦</span></span>
+    <span class="m-item">Giardino &amp; Outdoor <span class="m-dot">✦</span></span>
+    <span class="m-item">Arredamento &amp; Deco <span class="m-dot">✦</span></span>
+    <span class="m-item">Prezzi Onesti <span class="m-dot">✦</span></span>
+    <span class="m-item">Aperto Tutti i Giorni <span class="m-dot">✦</span></span>
+    <span class="m-item">Cucina &amp; Tavola <span class="m-dot">✦</span></span>
+    <span class="m-item">Bagno &amp; Pulizia <span class="m-dot">✦</span></span>
+    <span class="m-item">Gadget &amp; Tech <span class="m-dot">✦</span></span>
+    <span class="m-item">Casa &amp; Camera <span class="m-dot">✦</span></span>
+    <span class="m-item">Giardino &amp; Outdoor <span class="m-dot">✦</span></span>
+    <span class="m-item">Arredamento &amp; Deco <span class="m-dot">✦</span></span>
+    <span class="m-item">Prezzi Onesti <span class="m-dot">✦</span></span>
+    <span class="m-item">Aperto Tutti i Giorni <span class="m-dot">✦</span></span>
+  </div>
+</div>
+
+<!-- ═══ CHI SIAMO ═══ -->
+<section id="chi-siamo" aria-labelledby="chi-heading">
+  <div class="container">
+    <div class="label rv">Chi Siamo</div>
+    <div class="chi-grid">
+      <div class="chi-text">
+        <h2 id="chi-heading" class="rv">Il negozio che<br><em>tutti conoscono</em>.</h2>
+        <p class="rv d1">Siamo Enjoy Shop — quello che in paese tutti chiamano "il cinese". E ne siamo orgogliosi.</p>
+        <p class="rv d1">Due negozi, migliaia di clienti soddisfatti, e un catalogo che cresce ogni giorno. Dalla padella al gadget smart, dal cesto dell'organizzazione alla spazzola che cercavi da mesi: da noi lo trovi.</p>
+        <p class="rv d2">Senza fronzoli, senza prezzi gonfiati. Solo roba utile, tanta scelta, e un sorriso.</p>
+      </div>
+      <div class="chi-facts rv d2">
+        <div class="fact-card">
+          <div class="fact-num">10K+</div>
+          <div class="fact-txt"><strong>Articoli</strong><span>sempre disponibili</span></div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">2</div>
+          <div class="fact-txt"><strong>Negozi</strong><span>Milano &amp; Novara</span></div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-num">7/7</div>
+          <div class="fact-txt"><strong>Aperti</strong><span>tutti i giorni a Pogliano</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ONESTA ═══ -->
+<section id="onesta" aria-labelledby="onesta-heading">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="label rv">Trasparenza Totale</div>
+        <h2 id="onesta-heading" class="rv d1">L'onestà che<br><em>stupisce</em>.</h2>
+      </div>
+      <p class="onesta-note rv d2">Sì, importiamo dalla Cina. Come il tuo iPhone. Come le scarpe che hai ai piedi. Solo che noi lo diciamo.</p>
+    </div>
+    <div class="onesta-grid">
+      <div class="flip-card rv" id="flip-cina">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">🇨🇳</div>
+            <h3>Sì, dalla Cina</h3>
+            <p>Tocca per la verità</p>
+          </div>
+          <div class="flip-back">
+            <p>I nostri prodotti vengono dalla Cina. Come il 70% di quello che compri ovunque. La differenza? Noi li selezioniamo personalmente e i prezzi sono veri.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card rv d1" id="flip-qualita">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">✅</div>
+            <h3>Qualità Reale</h3>
+            <p>Tocca per scoprire</p>
+          </div>
+          <div class="flip-back">
+            <p>Non vendiamo spazzatura. Ogni prodotto passa dalla nostra selezione. Se non lo useremmo a casa nostra, non lo mettiamo in negozio. <em>Fine.</em></p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card rv d2" id="flip-prezzi">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="flip-icon">💰</div>
+            <h3>Prezzi Onesti</h3>
+            <p>Tocca per capire</p>
+          </div>
+          <div class="flip-back">
+            <p>Nessun saldo finto, nessun prezzo gonfiato da "scontare". Il prezzo che vedi è il prezzo giusto, sempre. <em>Senza sorprese.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CATEGORIE ═══ -->
+<section id="categorie" aria-labelledby="cat-heading">
+  <div class="container">
+    <div class="label rv">Cosa Trovi da Noi</div>
+    <h2 id="cat-heading" class="rv d1">Le nostre<br>categorie.</h2>
+    <div class="cat-grid">
+      <article class="cat-card rv" id="cat-cucina">
+        <img src="assets/images/universo-ricevere.png" alt="Cucina e tavola" loading="lazy">
+        <div class="cat-overlay">
+          <div class="cat-name">Cucina &amp; Tavola</div>
+          <div class="cat-count">800+ prodotti</div>
+        </div>
+      </article>
+      <article class="cat-card rv d1" id="cat-bagno">
+        <img src="assets/images/universo-cura.png" alt="Bagno e pulizia" loading="lazy">
+        <div class="cat-overlay">
+          <div class="cat-name">Bagno &amp; Pulizia</div>
+          <div class="cat-count">600+ prodotti</div>
+        </div>
+      </article>
+      <article class="cat-card rv d2" id="cat-gadget">
+        <img src="assets/images/universo-smartworking.png" alt="Gadget e tech" loading="lazy">
+        <div class="cat-overlay">
+          <div class="cat-name">Gadget &amp; Tech</div>
+          <div class="cat-count">400+ prodotti</div>
+        </div>
+      </article>
+      <article class="cat-card rv" id="cat-casa">
+        <img src="assets/images/universo-sonno.png" alt="Casa e camera" loading="lazy">
+        <div class="cat-overlay">
+          <div class="cat-name">Casa &amp; Camera</div>
+          <div class="cat-count">1.200+ prodotti</div>
+        </div>
+      </article>
+      <article class="cat-card rv d1" id="cat-giardino">
+        <img src="assets/images/universo-gusto.png" alt="Giardino e outdoor" loading="lazy">
+        <div class="cat-overlay">
+          <div class="cat-name">Giardino &amp; Outdoor</div>
+          <div class="cat-count">300+ prodotti</div>
+        </div>
+      </article>
+      <article class="cat-card rv d2" id="cat-arredo">
+        <img src="assets/images/hero-bg.png" alt="Arredamento e deco" loading="lazy">
+        <div class="cat-overlay">
+          <div class="cat-name">Arredamento &amp; Deco</div>
+          <div class="cat-count">500+ prodotti</div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="#negozi" class="btn btn-black rv btn-mag" id="cat-trova-btn">Vieni in negozio →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PIÙ VENDUTI ═══ -->
+<section id="venduti" aria-labelledby="venduti-heading">
+  <div class="container">
+    <div class="label rv">Sempre Disponibili</div>
+    <h2 id="venduti-heading" class="rv d1">I più<br>venduti.</h2>
+    <p class="drag-hint">Trascina per esplorare</p>
+    <div class="drag-scroll" id="drag-scroll">
+      <article class="prod-card" id="prod-1">
+        <div class="prod-img"><img src="assets/images/product-1.png" alt="Lampada Touch LED" loading="lazy"></div>
+        <div class="prod-info">
+          <div class="prod-cat">Gadget &amp; Tech</div>
+          <div class="prod-name">Lampada Touch LED</div>
+          <div class="prod-badge">Best Seller</div>
+        </div>
+      </article>
+      <article class="prod-card" id="prod-2">
+        <div class="prod-img"><img src="assets/images/product-2.png" alt="Teiera in Ghisa" loading="lazy"></div>
+        <div class="prod-info">
+          <div class="prod-cat">Cucina &amp; Tavola</div>
+          <div class="prod-name">Teiera in Ghisa</div>
+          <div class="prod-badge">Novità</div>
+        </div>
+      </article>
+      <article class="prod-card" id="prod-3">
+        <div class="prod-img"><img src="assets/images/product-3.png" alt="Organizer Modulare" loading="lazy"></div>
+        <div class="prod-info">
+          <div class="prod-cat">Casa &amp; Organizzazione</div>
+          <div class="prod-name">Organizer Modulare</div>
+          <div class="prod-badge">Il nostro pick</div>
+        </div>
+      </article>
+      <article class="prod-card" id="prod-4">
+        <div class="prod-img"><img src="assets/images/product-1.png" alt="Set Organizer Cucina" loading="lazy"></div>
+        <div class="prod-info">
+          <div class="prod-cat">Cucina &amp; Tavola</div>
+          <div class="prod-name">Set Organizer Cucina</div>
+          <div class="prod-badge">Top Scelto</div>
+        </div>
+      </article>
+      <article class="prod-card" id="prod-5">
+        <div class="prod-img"><img src="assets/images/product-2.png" alt="Spazzola Multi-uso" loading="lazy"></div>
+        <div class="prod-info">
+          <div class="prod-cat">Bagno &amp; Pulizia</div>
+          <div class="prod-name">Spazzola Multi-uso</div>
+          <div class="prod-badge">Imperdibile</div>
+        </div>
+      </article>
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:2rem;font-size:.95rem;" class="rv">
+      Solo 5 dei nostri <strong>10.000+ articoli</strong>. Vieni a scoprire tutto il resto.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="label rv">Domande Frequenti</div>
+    <h2 id="faq-heading" class="rv d1">Hai dubbi?<br><em>Risposta breve: sì.</em></h2>
+    <p class="faq-intro rv d2">Le domande che ci fanno sempre. Con le risposte vere, non quelle di marketing.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq1">Avete veramente 10.000 prodotti? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq1"><div class="faq-a-inner">Sì. Non è marketing. Sono anni che aggiungiamo prodotti e il catalogo cresce ogni mese. Vieni a contarli, se vuoi — ma porta il pranzo al sacco.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq2">I prodotti sono di qualità? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq2"><div class="faq-a-inner">Dipende cosa intendi. Sono prodotti selezionati, funzionali, a prezzi onesti. Non sono Alessi. Ma <em>Alessi</em> non costa €2,90.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq3">Avete la [cosa strana]? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq3"><div class="faq-a-inner">Probabilmente sì. Chiedila. Siamo abituati a richieste bizzarre e raramente usciamo sconfitti. Se non ce l'abbiamo, la troviamo.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq4">Si può portare il cane? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq4"><div class="faq-a-inner">Certo. Il cane è il benvenuto quanto te. Forse anche di più — dipende dal cane.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq5">Avete un sito e-commerce? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq5"><div class="faq-a-inner">No. E ne siamo fieri. Con 10.000 prodotti, catalogarli tutti online richiederebbe un team di 50 persone e un anno di lavoro. <em>Vieni in negozio: è più divertente.</em></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEGOZI ═══ -->
+<section id="negozi" aria-labelledby="negozi-heading">
+  <div class="container">
+    <div class="label reveal">Dove Siamo</div>
+    <h2 id="negozi-heading" class="reveal d1">Vieni a<br><em>trovarci</em>.</h2>
+    <p class="negozi-sub reveal d2">Due negozi, vicini a te. Ti aspettiamo.</p>
+    <div class="sedi-grid">
+
+      <article class="sede reveal d1" id="sede-pogliano" itemscope itemtype="https://schema.org/Store">
+        <meta itemprop="name" content="Enjoy Shop Pogliano Milanese">
+        <div class="sede-map">
+          <iframe title="Enjoy Shop Pogliano Milanese" src="https://maps.google.com/maps?q=Via+Monsignor+Paleari+90+Pogliano+Milanese+MI&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" aria-label="Mappa Enjoy Shop Pogliano Milanese"></iframe>
+        </div>
+        <div class="sede-body">
+          <div class="sede-tag">Sede Principale</div>
+          <div class="sede-city" itemprop="name">Pogliano Milanese</div>
+          <address class="sede-addr" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">Via Monsignor Paleari 90</span>, <span itemprop="postalCode">20005</span> <span itemprop="addressLocality">Pogliano Milanese</span> (<span itemprop="addressRegion">MI</span>)
+          </address>
+          <div class="orari">
+            <div class="or-row"><span>Lunedì – Domenica</span><span class="or-time">09:00 – 19:30</span></div>
+          </div>
+          <a href="tel:+390240136992" class="sede-phone" itemprop="telephone" aria-label="Chiama Enjoy Shop Pogliano">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.06 2.18 2 2 0 012.06.01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            02 4013 6992
+          </a>
+          <a href="https://maps.google.com/?q=Via+Monsignor+Paleari+90,+Pogliano+Milanese" target="_blank" rel="noopener noreferrer" class="btn btn-red" id="maps-pogliano-btn" style="width:100%;justify-content:center;">Portami lì →</a>
+        </div>
+      </article>
+
+      <article class="sede reveal d2" id="sede-galliate" itemscope itemtype="https://schema.org/Store">
+        <meta itemprop="name" content="Enjoy Shop Galliate">
+        <div class="sede-map">
+          <iframe title="Enjoy Shop Galliate" src="https://maps.google.com/maps?q=Via+Monte+Nero+38+Galliate+NO&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" aria-label="Mappa Enjoy Shop Galliate"></iframe>
+        </div>
+        <div class="sede-body">
+          <div class="sede-tag">Sede Galliate</div>
+          <div class="sede-city" itemprop="name">Galliate</div>
+          <address class="sede-addr" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">Via Monte Nero 38</span>, <span itemprop="postalCode">28066</span> <span itemprop="addressLocality">Galliate</span> (<span itemprop="addressRegion">NO</span>)
+          </address>
+          <div class="orari">
+            <div class="or-row"><span>Lun – Sab mattina</span><span class="or-time">09:00 – 12:30</span></div>
+            <div class="or-row"><span>Lun – Sab pomeriggio</span><span class="or-time">15:00 – 19:30</span></div>
+            <div class="or-row"><span>Domenica</span><span class="or-time or-closed">Chiuso</span></div>
+          </div>
+          <a href="https://maps.google.com/?q=Via+Monte+Nero+38,+Galliate,+NO" target="_blank" rel="noopener noreferrer" class="btn btn-red" id="maps-galliate-btn" style="width:100%;justify-content:center;margin-top:.5rem;">Portami lì →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-row">
+          <img src="assets/images/logo.png" alt="Enjoy Shop" width="36" height="36">
+          <span>Enjoy<em>Shop</em></span>
+        </div>
+        <p class="footer-desc">Negozio di articoli per la casa a Pogliano Milanese e Galliate. Oltre 10.000 prodotti.</p>
+      </div>
+      <nav aria-label="Link footer">
+        <ul class="footer-links" role="list">
+          <li><a href="#chi-siamo">Chi Siamo</a></li>
+          <li><a href="#categorie">Categorie</a></li>
+          <li><a href="#venduti">Prodotti</a></li>
+          <li><a href="#negozi">Negozi &amp; Orari</a></li>
+        </ul>
+      </nav>
+      <address class="footer-address">
+        <strong>Pogliano Milanese (MI)</strong><br>
+        Via Monsignor Paleari 90, 20005<br>
+        <a href="tel:+390240136992" style="color:inherit">02 4013 6992</a><br>
+        Lun–Dom 09:00–19:30<br><br>
+        <strong>Galliate (NO)</strong><br>
+        Via Monte Nero 38, 28066<br>
+        Lun–Sab 09:00–12:30 / 15:00–19:30
+      </address>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Yongshun di Xiaohong Hu — Tutti i diritti riservati.</span>
+      <span>Pogliano Milanese (MI) &amp; Galliate (NO)</span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
