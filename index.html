@@ -133,6 +133,30 @@
   </div>
 </div>
 
+<!-- COUNTDOWN BAR (shown when store closed) -->
+<div class="store-countdown" id="store-countdown" aria-live="polite" role="status">
+  <span class="countdown-label">⏳ Siamo chiusi — Apriamo tra</span>
+  <span class="countdown-time" id="countdown-time">00:00:00</span>
+  <span class="countdown-extra">Intanto guarda cosa ci aspetta in negozio</span>
+</div>
+
+<!-- SOCIAL PROOF TICKER -->
+<div class="proof-ticker" aria-hidden="true" role="presentation">
+  <div class="proof-ticker-track" id="proof-track">
+    <span class="proof-item"><span class="proof-dot"></span> <em>Qualcuno da Rho</em> sta guardando questa pagina</span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>3 persone</em> ci hanno chiamato nell’ultima ora</span>
+    <span class="proof-item"><span class="proof-dot"></span> Nuovo arrivo: <em>Organizer Cucina Deluxe</em></span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>Marco da Parabiago</em> è uscito con 7 cose invece di 1</span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>Amazon</em> ci ha inviato altri 12 pacchi oggi</span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>Qualcuno da Nerviano</em> ha trovato la padella che cercava da 6 mesi</span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>3 persone</em> ci hanno chiamato nell’ultima ora</span>
+    <span class="proof-item"><span class="proof-dot"></span> Nuovo arrivo: <em>Organizer Cucina Deluxe</em></span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>Marco da Parabiago</em> è uscito con 7 cose invece di 1</span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>Amazon</em> ci ha inviato altri 12 pacchi oggi</span>
+    <span class="proof-item"><span class="proof-dot"></span> <em>Qualcuno da Nerviano</em> ha trovato la padella che cercava da 6 mesi</span>
+  </div>
+</div>
+
 <main>
 
 
@@ -474,6 +498,22 @@
       <p>Hai visitato il nostro negozio? Lascia la tua recensione su Google Maps.</p>
       <a href="https://maps.google.com/?q=Enjoy+Shop+Pogliano+Milanese" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-mag" id="review-cta-btn">Lascia una Recensione →</a>
     </div>
+  </div>
+</section>
+
+<!-- ═══ SLOT MACHINE ═══ -->
+<section id="slot-machine" aria-labelledby="slot-heading">
+  <div class="container">
+    <div class="label rv">Cosa Trovi Oggi?</div>
+    <h2 id="slot-heading" class="rv d1">Gira la<br><em>ruota.</em></h2>
+    <p class="slot-subtitle rv d2">Non sai cosa cercare? Lascia decidere al caso.<br>Spoiler: trovi tutto comunque.</p>
+    <div class="slot-reels" id="slot-reels">
+      <div class="slot-reel" id="reel-0"><div class="slot-reel-inner" id="reel-inner-0"></div></div>
+      <div class="slot-reel" id="reel-1"><div class="slot-reel-inner" id="reel-inner-1"></div></div>
+      <div class="slot-reel" id="reel-2"><div class="slot-reel-inner" id="reel-inner-2"></div></div>
+    </div>
+    <button class="slot-spin-btn" id="slot-btn" aria-label="Gira le categorie">🎰 Gira!</button>
+    <p class="slot-result" id="slot-result">Premi per scoprire cosa cercare oggi ↓</p>
   </div>
 </section>
 

@@ -845,6 +845,165 @@ body::after{
 .pickup-disclaimer strong{color:rgba(255,255,255,.6);}
 .pickup-disclaimer a{color:var(--gold);text-decoration:underline;}
 
+/* ═══════════════════════════════════════
+   MOBILE-FIRST FIXES
+   ═══════════════════════════════════════ */
+html,body{overflow-x:hidden;}
+
+@media(max-width:768px){
+  /* Floating WA hidden — covered by mobile bar */
+  .wa-btn{display:none;}
+  /* Status badge hidden in nav on small screens */
+  .store-status{display:none;}
+  /* Dark toggle smaller + higher above mobile bar */
+  .dark-toggle{bottom:5.2rem;right:.8rem;width:36px;height:36px;font-size:.95rem;}
+  /* Sticker row — horizontal scroll, no wrap */
+  .hero-sticker-row{
+    overflow-x:auto;overflow-y:visible;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    flex-wrap:nowrap;
+    gap:.5rem;
+    padding-bottom:.25rem;
+  }
+  .hero-sticker-row::-webkit-scrollbar{display:none;}
+  .sticker{white-space:nowrap;flex-shrink:0;}
+  /* Hero */
+  .hero-inner{flex-direction:column;}
+  .hero-text{padding:1.5rem var(--pad) 0;}
+  .hero-img-wrap{width:100%;height:220px;border-radius:0;}
+  .hero-img-wrap img{height:100%;object-fit:cover;border-radius:0;}
+  .hero-counter-row{justify-content:flex-start;gap:2rem;}
+  /* Grids stack */
+  .chi-grid,.sedi-grid{grid-template-columns:1fr;}
+  /* Pickup padding smaller */
+  .pickup-card{padding:1.25rem;}
+  /* Footer stack */
+  .footer-top{flex-direction:column;gap:1.5rem;}
+  .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;}
+  .footer-legal{justify-content:center;}
+  /* Scroll hint hidden on mobile */
+  .scroll-hint{display:none;}
+  /* Geo banner position */
+  .geo-banner{top:60px;}
+  /* Nav: no desktop links */
+  .nav-links{display:none!important;}
+}
+@media(max-width:360px){
+  h1{font-size:clamp(2.6rem,11vw,3.5rem);}
+  h2{font-size:clamp(1.9rem,9vw,2.8rem);}
+  .pickup-card-brand{font-size:1.05rem;}
+  .slot-reels{gap:.5rem;}
+}
+
+/* ═══════════════════════════════════════
+   COUNTDOWN — "Apre tra X ore"
+   ═══════════════════════════════════════ */
+.store-countdown{
+  display:none;
+  align-items:center;gap:.75rem;flex-wrap:wrap;
+  background:var(--black);color:var(--white);
+  padding:.65rem var(--pad);
+  border-bottom:2px solid rgba(255,153,0,.35);
+  font-family:var(--font-h);font-size:.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;
+  position:sticky;top:72px;z-index:799;
+}
+.store-countdown.visible{display:flex;}
+.countdown-label{color:rgba(255,255,255,.45);flex-shrink:0;}
+.countdown-time{color:var(--gold);font-size:1.1rem;letter-spacing:.14em;font-variant-numeric:tabular-nums;}
+.countdown-extra{color:rgba(255,255,255,.25);font-size:.7rem;font-weight:400;letter-spacing:.06em;}
+
+/* ═══════════════════════════════════════
+   SOCIAL PROOF TICKER
+   ═══════════════════════════════════════ */
+.proof-ticker{
+  background:#050505;
+  padding:.45rem 0;
+  overflow:hidden;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.proof-ticker-track{
+  display:flex;gap:4rem;
+  animation:tickerScroll 28s linear infinite;
+  width:max-content;
+}
+.proof-ticker:hover .proof-ticker-track{animation-play-state:paused;}
+.proof-item{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--font-h);font-size:.75rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;
+  color:rgba(255,255,255,.3);white-space:nowrap;
+  flex-shrink:0;
+}
+.proof-item em{color:rgba(255,255,255,.65);font-style:normal;}
+.proof-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:statusPulse 2s ease-in-out infinite;}
+@keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ═══════════════════════════════════════
+   SLOT MACHINE SECTION
+   ═══════════════════════════════════════ */
+#slot-machine{
+  padding-block:clamp(3rem,8vw,6rem);
+  background:var(--black);color:var(--white);
+  border-top:2px solid rgba(255,255,255,.06);
+  text-align:center;overflow:hidden;
+}
+#slot-machine .label{text-align:center;margin-bottom:.5rem;}
+#slot-machine h2{margin-bottom:.5rem;color:var(--white);}
+#slot-machine h2 em{color:var(--gold);font-style:normal;}
+.slot-subtitle{color:rgba(255,255,255,.4);font-size:.95rem;margin-bottom:2.5rem;line-height:1.6;}
+.slot-reels{
+  display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;
+}
+.slot-reel{
+  width:clamp(85px,20vw,130px);height:80px;
+  background:rgba(255,255,255,.04);
+  border:2px solid rgba(255,255,255,.1);
+  border-radius:8px;overflow:hidden;
+  position:relative;
+}
+.slot-reel.win-reel{border-color:var(--gold);box-shadow:0 0 16px rgba(232,150,28,.3);}
+.slot-reel-inner{
+  display:flex;flex-direction:column;
+  will-change:transform;
+}
+.slot-item{
+  height:80px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.2rem;
+  font-family:var(--font-h);font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.6);
+  flex-shrink:0;padding:0 .25rem;
+}
+.slot-item-emoji{font-size:1.6rem;line-height:1;}
+.slot-reel::before,.slot-reel::after{
+  content:'';position:absolute;left:0;right:0;height:20px;z-index:2;pointer-events:none;
+}
+.slot-reel::before{top:0;background:linear-gradient(to bottom,rgba(10,10,10,.95),transparent);}
+.slot-reel::after{bottom:0;background:linear-gradient(to top,rgba(10,10,10,.95),transparent);}
+.slot-spin-btn{
+  font-family:var(--font-h);font-size:1.1rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.1em;
+  background:var(--red);color:#fff;border:none;cursor:pointer;
+  padding:.85rem 2.5rem;border-radius:4px;
+  transition:transform .2s var(--ease),background .2s,box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.slot-spin-btn:hover:not(:disabled){background:var(--red-dk);transform:scale(1.05);box-shadow:0 6px 24px rgba(212,43,43,.4);}
+.slot-spin-btn:active:not(:disabled){transform:scale(.97);}
+.slot-spin-btn:disabled{background:#333;cursor:not-allowed;opacity:.7;}
+.slot-result{
+  margin-top:1.25rem;
+  font-family:var(--font-h);font-size:.95rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;
+  color:rgba(255,255,255,.25);
+  min-height:1.5rem;
+  transition:color .4s,opacity .4s;
+}
+.slot-result.win{color:var(--gold);}
+.slot-result.nudge{color:rgba(255,255,255,.55);}
+
+
 
 
 

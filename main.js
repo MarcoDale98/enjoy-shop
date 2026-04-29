@@ -382,4 +382,125 @@ const roSide = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide.observe(el));
 
+// ─── COUNTDOWN TO OPENING ───
+(function initCountdown() {
+  const bar = document.getElementById('store-countdown');
+  const timeEl = document.getElementById('countdown-time');
+  if (!bar || !timeEl) return;
+
+  // Pogliano: 7/7 09:00-19:30
+  function getNextOpen() {
+    const now = new Date();
+    const open = new Date(now);
+    open.setHours(9, 0, 0, 0);
+    const close = new Date(now);
+    close.setHours(19, 30, 0, 0);
+    if (now >= open && now < close) return null; // is open
+    // If past close, next open is tomorrow
+    if (now >= close) open.setDate(open.getDate() + 1);
+    return open;
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const next = getNextOpen();
+    if (!next) { bar.classList.remove('visible'); return; }
+    bar.classList.add('visible');
+    const diff = next - Date.now();
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    timeEl.textContent = `${pad(h)}:${pad(m)}:${pad(s)}`;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ─── SLOT MACHINE ───
+(function initSlot() {
+  const btn = document.getElementById('slot-btn');
+  const resultEl = document.getElementById('slot-result');
+  if (!btn || !resultEl) return;
+
+  const categories = [
+    { emoji: '🍳', name: 'Cucina' },
+    { emoji: '🛁', name: 'Bagno' },
+    { emoji: '🧹', name: 'Pulizia' },
+    { emoji: '💡', name: 'Gadget' },
+    { emoji: '🛏️', name: 'Camera' },
+    { emoji: '🌿', name: 'Giardino' },
+    { emoji: '🎁', name: 'Regali' },
+    { emoji: '🪑', name: 'Arredo' },
+    { emoji: '🧺', name: 'Organizer' },
+    { emoji: '⚡', name: 'Smart Home' },
+    { emoji: '🐾', name: 'Pet' },
+    { emoji: '🧴', name: 'Cura Casa' },
+  ];
+
+  const funnyResults = [
+    'Perfetto. Ora non hai scuse per non venire.',
+    'Il destino ha parlato. Noi abbiamo tutto questo.',
+    'Qualcuno lassù vuole che tu venga da noi.',
+    'Tre ottimi motivi per uscire di casa.',
+    'Già che ci sei, cerca anche le altre 9.997 cose.',
+    'Vedi? Non dovevi nemmeno pensarci.',
+  ];
+
+  // Build reels
+  [0, 1, 2].forEach(i => {
+    const inner = document.getElementById(`reel-inner-${i}`);
+    if (!inner) return;
+    // Fill with shuffled categories x3 for scroll effect
+    const items = [...categories, ...categories, ...categories];
+    items.forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'slot-item';
+      div.innerHTML = `<span class="slot-item-emoji">${c.emoji}</span><span>${c.name}</span>`;
+      inner.appendChild(div);
+    });
+  });
+
+  let spinning = false;
+
+  btn.addEventListener('click', () => {
+    if (spinning) return;
+    spinning = true;
+    btn.disabled = true;
+    resultEl.className = 'slot-result';
+    resultEl.textContent = '';
+
+    const chosen = [0, 1, 2].map(() => Math.floor(Math.random() * categories.length));
+
+    [0, 1, 2].forEach((i, idx) => {
+      const inner = document.getElementById(`reel-inner-${i}`);
+      if (!inner) return;
+      const targetIdx = categories.length + chosen[idx]; // second set
+      const offset = -(targetIdx * 80);
+      // Random extra spins for drama
+      const spins = (3 + idx) * categories.length * 80;
+      inner.style.transition = `transform ${0.7 + idx * 0.25}s cubic-bezier(0.23,1,0.32,1)`;
+      inner.style.transform = `translateY(${offset - spins}px)`;
+      // After animation, snap to correct position without transition
+      setTimeout(() => {
+        inner.style.transition = 'none';
+        inner.style.transform = `translateY(${offset}px)`;
+        document.getElementById(`reel-${i}`).classList.add('win-reel');
+      }, (0.7 + idx * 0.25) * 1000 + 50);
+    });
+
+    const totalDuration = (0.7 + 2 * 0.25) * 1000 + 200;
+    setTimeout(() => {
+      spinning = false;
+      btn.disabled = false;
+      const names = chosen.map(idx => categories[idx].name).join(', ');
+      const funny = funnyResults[Math.floor(Math.random() * funnyResults.length)];
+      resultEl.textContent = `${names} — ${funny}`;
+      resultEl.className = 'slot-result win';
+    }, totalDuration);
+  });
+})();
+
+
 
