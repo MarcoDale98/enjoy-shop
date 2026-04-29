@@ -1,0 +1,28 @@
+{
+  "name": "Enjoy Shop",
+  "short_name": "EnjoyShop",
+  "description": "Oltre 10.000 articoli per la casa a Pogliano Milanese e Galliate. Prezzi giusti, sempre.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8F7F4",
+  "theme_color": "#D42B2B",
+  "lang": "it",
+  "categories": ["shopping"],
+  "icons": [
+    { "src": "assets/images/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/images/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chiama Pogliano",
+      "url": "tel:+390240136992",
+      "description": "Chiama il negozio di Pogliano Milanese"
+    },
+    {
+      "name": "Indicazioni",
+      "url": "https://maps.google.com/?q=Via+Monsignor+Paleari+90,+Pogliano+Milanese",
+      "description": "Come arrivare al negozio"
+    }
+  ]
+}

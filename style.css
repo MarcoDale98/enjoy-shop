@@ -504,3 +504,220 @@ body{transition:background .35s var(--ease),color .35s var(--ease);}
 .review-via{font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
 .reviews-cta{text-align:center;margin-top:2.5rem;}
 .reviews-cta p{color:var(--muted);font-size:.9rem;margin-bottom:1rem;}
+
+/* ─── NOISE OVERLAY ─── */
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:9990;
+  pointer-events:none;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* ─── GEO BANNER ─── */
+.geo-banner{
+  position:fixed;top:72px;left:0;right:0;z-index:800;
+  background:var(--black);border-bottom:2px solid var(--gold);
+  padding:.65rem var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  transform:translateY(-120%);
+  transition:transform .5s var(--ease);
+}
+.geo-banner.visible{transform:translateY(0);}
+.geo-banner p{font-family:var(--font-h);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--white);letter-spacing:.05em;}
+.geo-banner p em{color:var(--gold);font-style:normal;}
+.geo-banner-actions{display:flex;gap:.75rem;}
+.geo-banner-close{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:1.2rem;padding:.2rem .4rem;transition:color .2s;}
+.geo-banner-close:hover{color:var(--white);}
+.geo-banner a.btn{padding:.4rem 1rem;font-size:.82rem;}
+
+/* ─── MOBILE BOTTOM CTA BAR ─── */
+.mobile-cta-bar{
+  display:flex;
+  position:fixed;bottom:0;left:0;right:0;z-index:900;
+  background:var(--black);
+  border-top:2px solid rgba(255,255,255,.08);
+  padding-bottom:env(safe-area-inset-bottom);
+  box-shadow:0 -4px 24px rgba(0,0,0,.4);
+}
+.mcta-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:.25rem;
+  padding:.7rem .5rem;
+  font-family:var(--font-h);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);text-decoration:none;border:none;background:none;cursor:pointer;
+  transition:color .2s,background .2s;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.mcta-btn:last-child{border-right:none;}
+.mcta-btn svg{width:20px;height:20px;}
+.mcta-btn.mcta-call{color:#22c55e;}
+.mcta-btn.mcta-wa{color:#25D366;}
+.mcta-btn.mcta-map:hover,.mcta-btn:hover{background:rgba(255,255,255,.04);color:var(--white);}
+.mcta-btn.mcta-call:hover{background:rgba(34,197,94,.08);}
+.mcta-btn.mcta-wa:hover{background:rgba(37,211,102,.08);}
+/* Mostra solo su mobile */
+@media(min-width:769px){.mobile-cta-bar{display:none;}}
+/* Aggiunge padding in basso al body su mobile per non coprire contenuto */
+@media(max-width:768px){
+  body{padding-bottom:64px;}
+  .cookie-banner{bottom:64px;}
+  .dark-toggle{bottom:5.5rem;}
+}
+
+/* ─── CARD TILT (desktop hover) ─── */
+.tilt-card{transform-style:preserve-3d;transition:transform .15s ease,box-shadow .3s;}
+
+/* ═══════════════════════════════════════
+   WOW EFFECTS
+   ═══════════════════════════════════════ */
+
+/* HERO PARTICLE CANVAS */
+#hero-canvas{
+  position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.35;
+}
+#hero .hero-inner{position:relative;z-index:1;}
+#hero{position:relative;}
+
+/* SHIMMER TEXT on section labels */
+.label{
+  background:linear-gradient(90deg, var(--red) 0%, var(--gold) 40%, var(--red) 80%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shimmerLabel 4s linear infinite;
+}
+@keyframes shimmerLabel{to{background-position:200% center;}}
+
+/* HERO H1 TEXT GRADIENT ANIMATED */
+.hero-h1 em{
+  background:linear-gradient(135deg, var(--red) 0%, #ff6b6b 50%, var(--red-dk) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradientShift 3s ease infinite alternate;
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%;}
+  100%{background-position:100% 50%;}
+}
+
+/* BUTTON RIPPLE EFFECT */
+.btn{overflow:hidden;}
+.btn .ripple{
+  position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.35);
+  transform:scale(0);
+  animation:rippleAnim .6s linear;
+  pointer-events:none;
+}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0;}}
+
+/* HERO STICKER FLOAT INDIVIDUAL */
+.sticker-gold{animation:stickerFloat1 3.5s ease-in-out infinite;}
+.sticker-black{animation:stickerFloat2 4s ease-in-out infinite;}
+.sticker-red{animation:stickerFloat3 3s ease-in-out infinite;}
+@keyframes stickerFloat1{0%,100%{transform:rotate(-3deg) translateY(0);}50%{transform:rotate(-1.5deg) translateY(-6px);}}
+@keyframes stickerFloat2{0%,100%{transform:rotate(2deg) translateY(0);}50%{transform:rotate(3.5deg) translateY(-5px);}}
+@keyframes stickerFloat3{0%,100%{transform:rotate(-1.5deg) translateY(0);}50%{transform:rotate(-3deg) translateY(-7px);}}
+
+/* SECTION ENTRANCE — slide from side */
+.rv-left{opacity:0;transform:translateX(-40px);transition:opacity .75s var(--ease),transform .75s var(--ease);}
+.rv-left.in{opacity:1;transform:none;}
+.rv-right{opacity:0;transform:translateX(40px);transition:opacity .75s var(--ease),transform .75s var(--ease);}
+.rv-right.in{opacity:1;transform:none;}
+.rv-scale{opacity:0;transform:scale(.88);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.rv-scale.in{opacity:1;transform:scale(1);}
+
+/* MARQUEE GLOW on hover */
+.marquee-bar{transition:box-shadow .3s;}
+.marquee-bar:hover{box-shadow:0 0 40px rgba(212,43,43,.25);}
+
+/* ONESTA SECTION — card glow on hover */
+.flip-back{
+  box-shadow:inset 0 0 60px rgba(255,255,255,.05);
+}
+.flip-card:hover .flip-front{
+  box-shadow:0 0 30px rgba(212,43,43,.3);
+}
+
+/* SCROLL INDICATOR arrow bounce */
+.scroll-hint{
+  display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  font-family:var(--font-h);font-size:.72rem;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--muted);
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  animation:scrollHintBounce 2s ease-in-out infinite;
+  cursor:pointer;
+}
+.scroll-hint svg{width:20px;height:20px;stroke:var(--red);}
+@keyframes scrollHintBounce{
+  0%,100%{transform:translateX(-50%) translateY(0);}
+  50%{transform:translateX(-50%) translateY(8px);}
+}
+
+/* FACT CARDS — number counter glow */
+.fact-num{
+  text-shadow:0 0 30px rgba(212,43,43,.4);
+  transition:text-shadow .3s;
+}
+.fact-card:hover .fact-num{text-shadow:0 0 50px rgba(212,43,43,.7);}
+
+/* REVIEW CARD border glow on hover */
+.review-card{transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;}
+.review-card:hover{border-color:var(--red);box-shadow:0 8px 32px rgba(212,43,43,.15),4px 4px 0 var(--black);}
+
+/* HERO FLOAT BADGE PULSE */
+.hero-float-badge{
+  animation:floatBadgePulse 3s ease-in-out infinite;
+}
+@keyframes floatBadgePulse{
+  0%,100%{transform:rotate(4deg) translateY(0);box-shadow:2px 2px 0 var(--red);}
+  50%{transform:rotate(4deg) translateY(-8px);box-shadow:2px 10px 20px rgba(212,43,43,.4);}
+}
+
+/* SEDE CARD glow */
+.sede:hover{
+  box-shadow:0 0 40px rgba(212,43,43,.2);
+}
+
+/* PROD CARD badge shine */
+.prod-badge{
+  position:relative;overflow:hidden;
+}
+.prod-badge::after{
+  content:'';position:absolute;top:-50%;left:-60%;
+  width:30%;height:200%;
+  background:rgba(255,255,255,.4);
+  transform:skewX(-20deg);
+  animation:badgeShine 3s ease-in-out infinite;
+}
+@keyframes badgeShine{
+  0%,80%,100%{left:-60%;}
+  40%{left:130%;}
+}
+
+/* WA BTN pulse ring */
+.wa-btn::before{
+  content:'';
+  position:absolute;inset:-4px;border-radius:50px;
+  border:2px solid #25D366;
+  animation:waPulseRing 2s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes waPulseRing{
+  0%{opacity:.8;transform:scale(1);}
+  100%{opacity:0;transform:scale(1.25);}
+}
+
+/* MOBILE CTA TAP FEEDBACK */
+.mcta-btn:active{background:rgba(255,255,255,.1) !important;transform:scale(.94);}
+
+/* DARK MODE — extra glow on accent elements */
+[data-theme="dark"] .hero-h1{text-shadow:0 0 60px rgba(212,43,43,.15);}
+[data-theme="dark"] #onesta{background:#0a0a0a;}
+[data-theme="dark"] .flip-front{background:#111;border-color:rgba(255,255,255,.08);}
+
+

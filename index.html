@@ -17,6 +17,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#D42B2B">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EnjoyShop">
 
   <script type="application/ld+json">
   {
@@ -96,6 +102,7 @@
       <li><a href="#chi-siamo">Chi Siamo</a></li>
       <li><a href="#categorie">Categorie</a></li>
       <li><a href="#venduti">Prodotti</a></li>
+      <li><a href="#reviews">Recensioni</a></li>
       <li><a href="#negozi">Negozi</a></li>
     </ul>
     <a href="tel:+390240136992" class="nav-cta" id="nav-tel-btn">📞 Chiamaci</a>
@@ -108,15 +115,27 @@
     <a href="#chi-siamo" class="mob-link">Chi Siamo</a>
     <a href="#categorie" class="mob-link">Categorie</a>
     <a href="#venduti" class="mob-link">Prodotti</a>
+    <a href="#reviews" class="mob-link">Recensioni</a>
     <a href="#negozi" class="mob-link">Negozi</a>
     <a href="tel:+390240136992" class="mob-link mob-cta">📞 Chiamaci</a>
   </div>
 </nav>
 
+<!-- GEO BANNER -->
+<div class="geo-banner" id="geo-banner" role="status" aria-live="polite">
+  <p class="geo-text">📍 Sei vicino a uno dei nostri negozi!</p>
+  <div class="geo-banner-actions">
+    <a href="#" class="btn btn-red geo-directions" target="_blank" rel="noopener">Indicazioni →</a>
+    <button class="geo-banner-close geo-close" aria-label="Chiudi">×</button>
+  </div>
+</div>
+
 <main>
+
 
 <!-- ═══ HERO ═══ -->
 <section id="hero" aria-label="Enjoy Shop — Negozio articoli per la casa">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-tag">📍 Pogliano Milanese &amp; Galliate</div>
@@ -146,6 +165,10 @@
       <img src="assets/images/hero-bg.png" alt="Interno negozio Enjoy Shop" fetchpriority="high">
       <div class="hero-float-badge">10.000+ articoli 🎉</div>
     </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <span>Scorri</span>
   </div>
 </section>
 
@@ -177,13 +200,13 @@
   <div class="container">
     <div class="label rv">Chi Siamo</div>
     <div class="chi-grid">
-      <div class="chi-text">
+      <div class="chi-text rv-left">
         <h2 id="chi-heading" class="rv">Il negozio che<br><em>tutti conoscono</em>.</h2>
         <p class="rv d1">Siamo Enjoy Shop — quello che in paese tutti chiamano "il cinese". E ne siamo orgogliosi.</p>
         <p class="rv d1">Due negozi, migliaia di clienti soddisfatti, e un catalogo che cresce ogni giorno. Dalla padella al gadget smart, dal cesto dell'organizzazione alla spazzola che cercavi da mesi: da noi lo trovi.</p>
         <p class="rv d2">Senza fronzoli, senza prezzi gonfiati. Solo roba utile, tanta scelta, e un sorriso.</p>
       </div>
-      <div class="chi-facts rv d2">
+      <div class="chi-facts rv-right d2">
         <div class="fact-card">
           <div class="fact-num">10K+</div>
           <div class="fact-txt"><strong>Articoli</strong><span>sempre disponibili</span></div>
@@ -592,6 +615,26 @@
     <button class="cookie-accept" id="cookie-accept">Accetto</button>
     <button class="cookie-decline" id="cookie-decline">Solo necessari</button>
   </div>
+</div>
+
+<!-- MOBILE BOTTOM CTA BAR -->
+<div class="mobile-cta-bar" id="mobile-cta-bar" role="navigation" aria-label="Azioni rapide">
+  <a href="tel:+390240136992" class="mcta-btn mcta-call" id="mcta-call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.06 2.18 2 2 0 012.06.01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <span>Chiama</span>
+  </a>
+  <a href="https://wa.me/390240136992" target="_blank" rel="noopener noreferrer" class="mcta-btn mcta-wa" id="mcta-wa">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="https://maps.google.com/?q=Via+Monsignor+Paleari+90,+Pogliano+Milanese" target="_blank" rel="noopener noreferrer" class="mcta-btn mcta-map" id="mcta-map">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span>Indicazioni</span>
+  </a>
+  <a href="#negozi" class="mcta-btn" id="mcta-orari">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span>Orari</span>
+  </a>
 </div>
 
 <script src="main.js"></script>
