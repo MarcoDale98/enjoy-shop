@@ -85,6 +85,22 @@ h3{font-size:clamp(1.5rem,3vw,2.2rem);}
 .nav-links a:hover{color:var(--red);}
 .nav-cta{font-family:var(--font-h);font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.55rem 1.3rem;background:var(--red);color:var(--white);border-radius:3px;flex-shrink:0;transition:.25s var(--ease);}
 .nav-cta:hover{background:var(--red-dk);}
+/* Phone CTA — sits next to store-status (right of "Aperto ora") */
+.nav-call-btn{
+  display:none; /* shown only on desktop, next to status badge */
+  align-items:center;gap:.3rem;
+  font-family:var(--font-h);font-size:.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:.38rem .9rem;
+  background:var(--red);color:var(--white);
+  border-radius:3px;flex-shrink:0;
+  transition:.2s var(--ease);
+  white-space:nowrap;
+}
+.nav-call-btn:hover{background:var(--red-dk);}
+/* Show only on desktop (already hidden by default on mobile; hamburger covers it) */
+@media(min-width:769px){.nav-call-btn{display:inline-flex;}}
+
 .hamburger{display:none;flex-direction:column;gap:5px;padding:4px;background:none;border:none;cursor:pointer;margin-left:auto;}
 .hamburger span{display:block;width:24px;height:2px;background:var(--black);transition:.3s var(--ease);}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
