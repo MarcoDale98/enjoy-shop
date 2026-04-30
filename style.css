@@ -23,12 +23,112 @@
 [data-theme="dark"] {
   --bg:     #111;
   --surface:#1a1a1a;
-  --cream:  #111;
-  --white:  #1a1a1a;
-  --black:  #f0f0f0;
+  --cream:  #161616;
+  --white:  #1e1e1e;
+  --black:  #e8e8e8;
   --muted:  #999;
-  --border: rgba(255,255,255,0.1);
+  --border: rgba(255,255,255,0.09);
+  --gold:   #E8961C;
 }
+
+/* NAV */
+[data-theme="dark"] #nav{background:rgba(18,18,18,.97);border-bottom-color:rgba(255,255,255,.07);}
+
+/* MARQUEE: was --black bg → keep truly dark */
+[data-theme="dark"] .marquee-bar{background:#0a0a0a;}
+[data-theme="dark"] .m-item{color:#e8e8e8;}
+
+/* STICKERS */
+[data-theme="dark"] .sticker-black{background:#0a0a0a;color:#f0f0f0;}
+
+/* HERO */
+[data-theme="dark"] .hero-float-badge{background:#e8e8e8;color:#0F0F0F;}
+[data-theme="dark"] .hero-img-wrap img{border-color:rgba(255,255,255,.15);}
+[data-theme="dark"] #hero{background:#111;}
+
+/* ONESTA: intentionally dark section → KEEP dark */
+[data-theme="dark"] #onesta{background:#0d0d0d;color:#e8e8e8;}
+[data-theme="dark"] .flip-front h3{color:#e8e8e8;}
+[data-theme="dark"] .onesta-note{color:rgba(255,255,255,.4);}
+
+/* CHI SIAMO */
+[data-theme="dark"] #chi-siamo{background:#161616;}
+[data-theme="dark"] .fact-card{background:#1e1e1e;border-color:rgba(255,255,255,.09);}
+
+/* CATEGORIE */
+[data-theme="dark"] #categorie{background:#1e1e1e;border-top-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .cat-card{border-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .cat-card:hover{box-shadow:6px 6px 0 rgba(255,255,255,.12);}
+[data-theme="dark"] .cat-name{color:#fff;}
+
+/* PRODOTTI */
+[data-theme="dark"] #venduti{background:#161616;border-top-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .prod-card{background:#1e1e1e;border-color:rgba(255,255,255,.09);}
+[data-theme="dark"] .prod-card:hover{box-shadow:4px 4px 0 rgba(255,255,255,.1);}
+[data-theme="dark"] .prod-name{color:#e8e8e8;}
+[data-theme="dark"] .prod-badge{color:#fff;}
+
+/* REVIEWS */
+[data-theme="dark"] #reviews{background:#161616;}
+[data-theme="dark"] .review-card{background:#1e1e1e;border-color:rgba(255,255,255,.07);}
+[data-theme="dark"] .review-purchase{background:#111;border-left-color:rgba(255,255,255,.15);}
+[data-theme="dark"] .review-name{color:#e8e8e8;}
+
+/* FAQ */
+[data-theme="dark"] #faq{background:#161616;border-top-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .faq-item{border-bottom-color:rgba(255,255,255,.1);}
+
+/* RISPARMIO */
+[data-theme="dark"] #risparmio{background:#0d0d0d;}
+[data-theme="dark"] .savings-row{border-color:rgba(255,255,255,.06);}
+[data-theme="dark"] .savings-product{color:#e8e8e8;}
+
+/* PICKUP */
+[data-theme="dark"] .pickup-section{background:#0d0d0d;}
+[data-theme="dark"] .pickup-card{background:#1a1a1a;border-color:rgba(255,255,255,.08);}
+[data-theme="dark"] .pickup-card-brand{color:#e8e8e8;}
+[data-theme="dark"] .pickup-card-desc{color:#999;}
+[data-theme="dark"] .pickup-disclaimer{border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.4);}
+[data-theme="dark"] .pickup-steps li{color:#999;}
+
+/* NEGOZI: intentionally dark → KEEP dark */
+[data-theme="dark"] #negozi{background:#0a0a0a;color:#e8e8e8;}
+[data-theme="dark"] .negozi-sub{color:rgba(255,255,255,.45);}
+[data-theme="dark"] .sede-city{color:#e8e8e8;}
+
+/* SLOT MACHINE */
+[data-theme="dark"] #slot-machine{background:#0d0d0d;color:#e8e8e8;}
+[data-theme="dark"] .slot-reel{background:#1a1a1a;border-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .slot-spin-btn{background:var(--red);color:#fff;}
+[data-theme="dark"] .slot-result{color:#999;}
+[data-theme="dark"] .slot-subtitle{color:#999;}
+
+/* COOKIE BANNER */
+[data-theme="dark"] .cookie-banner{background:#1a1a1a;border-top-color:rgba(255,255,255,.08);color:#bbb;}
+[data-theme="dark"] .cookie-banner a{color:var(--red);}
+
+/* MOBILE BAR */
+[data-theme="dark"] .mobile-cta-bar{background:#0d0d0d;border-top-color:rgba(255,255,255,.08);}
+[data-theme="dark"] .mob-cta-btn{color:rgba(255,255,255,.5);}
+[data-theme="dark"] .mob-cta-btn.active,[data-theme="dark"] .mob-cta-btn:hover{color:var(--red);}
+[data-theme="dark"] .mob-cta-label{color:inherit;}
+
+/* BUTTONS */
+[data-theme="dark"] .btn-outline{border-color:rgba(255,255,255,.35);color:#e8e8e8;}
+[data-theme="dark"] .btn-outline:hover{background:rgba(255,255,255,.08);color:#fff;}
+[data-theme="dark"] .btn-black{background:#e8e8e8;color:#0d0d0d;}
+[data-theme="dark"] .btn-black:hover{background:#ccc;}
+
+/* DARK TOGGLE */
+[data-theme="dark"] .dark-toggle{background:#222;border-color:rgba(255,255,255,.2);color:#e8e8e8;}
+
+/* LEGAL PAGES */
+[data-theme="dark"] .legal-hero{background:#161616;border-bottom-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .legal-body{background:#111;}
+[data-theme="dark"] .legal-body h2{color:#e8e8e8;}
+
+/* GEO BANNER */
+[data-theme="dark"] .geo-banner{background:#1a1a1a;border-bottom-color:rgba(255,255,255,.08);color:#ccc;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--cream);color:var(--black);font-family:var(--font-b);font-weight:400;line-height:1.6;overflow-x:hidden;}
@@ -421,7 +521,7 @@ body{transition:background .35s var(--ease),color .35s var(--ease);}
   transition:transform .3s var(--ease),background .25s;
 }
 .dark-toggle:hover{transform:scale(1.1) rotate(15deg);}
-[data-theme="dark"] .dark-toggle{background:#222;border-color:rgba(255,255,255,.2);}
+/* (dark toggle dark mode override now in main [data-theme=dark] block above) */
 
 /* ─── OPEN/CLOSED BADGE ─── */
 .store-status{
