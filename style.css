@@ -248,7 +248,7 @@ h3{font-size:clamp(1.5rem,3vw,2.2rem);}
 .faq-intro em{color:var(--red);font-style:normal;}
 .faq-list{max-width:760px;}
 .faq-item{border-bottom:2px solid var(--black);}
-.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0;background:none;border:none;cursor:pointer;font-family:var(--font-h);font-size:1.3rem;font-weight:700;text-transform:uppercase;color:var(--black);text-align:left;gap:1rem;transition:color .2s;}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 0;min-height:44px;background:none;border:none;cursor:pointer;font-family:var(--font-h);font-size:1.3rem;font-weight:700;text-transform:uppercase;color:var(--black);text-align:left;gap:1rem;transition:color .2s;}
 .faq-q:hover{color:var(--red);}
 .faq-icon{font-size:1.6rem;flex-shrink:0;transition:transform .45s var(--ease);color:var(--red);}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
@@ -456,7 +456,9 @@ body{transition:background .35s var(--ease),color .35s var(--ease);}
 
 /* ─── COOKIE BANNER ─── */
 .cookie-banner{
-  position:fixed;bottom:0;left:0;right:0;z-index:950;
+  position:fixed;left:0;right:0;z-index:920;
+  /* Desktop: bottom:0, Mobile: above the mobile bar */
+  bottom:0;
   background:#0a0a0a;border-top:2px solid var(--red);
   padding:1rem var(--pad);
   display:flex;align-items:center;flex-wrap:wrap;gap:1rem;
@@ -601,11 +603,13 @@ body::after{
 .mcta-btn.mcta-wa:hover{background:rgba(37,211,102,.08);}
 /* Mostra solo su mobile */
 @media(min-width:769px){.mobile-cta-bar{display:none;}}
-/* Aggiunge padding in basso al body su mobile per non coprire contenuto */
+
+/* Mobile bar + related elements */
 @media(max-width:768px){
-  body{padding-bottom:64px;}
-  .cookie-banner{bottom:64px;}
-  .dark-toggle{bottom:5.5rem;}
+  /* Cookie banner sits above mobile bar (64px) + safe area */
+  .cookie-banner{bottom:calc(64px + env(safe-area-inset-bottom,0px));}
+  /* Dark toggle above mobile bar */
+  .dark-toggle{bottom:calc(64px + env(safe-area-inset-bottom,0px) + .75rem);}
 }
 
 /* ─── CARD TILT (desktop hover) ─── */
@@ -889,7 +893,7 @@ body::after{
 .pickup-disclaimer a{color:var(--gold);text-decoration:underline;}
 
 /* ═══════════════════════════════════════
-   MOBILE-FIRST FIXES
+   MOBILE-FIRST OVERHAUL
    ═══════════════════════════════════════ */
 html,body{overflow-x:hidden;}
 
@@ -897,30 +901,13 @@ html,body{overflow-x:hidden;}
   /* Floating WA hidden — covered by mobile bar */
   .wa-btn{display:none;}
   /* Status badge hidden in nav on small screens */
-  .store-status{display:none;}
-  /* Dark toggle smaller + higher above mobile bar */
-  .dark-toggle{bottom:5.2rem;right:.8rem;width:36px;height:36px;font-size:.95rem;}
-  /* Sticker row — horizontal scroll, no wrap */
-  .hero-sticker-row{
-    overflow-x:auto;overflow-y:visible;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    flex-wrap:nowrap;
-    gap:.5rem;
-    padding-bottom:.25rem;
-  }
-  .hero-sticker-row::-webkit-scrollbar{display:none;}
-  .sticker{white-space:nowrap;flex-shrink:0;}
-  /* Hero */
-  .hero-inner{flex-direction:column;}
-  .hero-text{padding:1.5rem var(--pad) 0;}
-  .hero-img-wrap{width:100%;height:220px;border-radius:0;}
-  .hero-img-wrap img{height:100%;object-fit:cover;border-radius:0;}
-  .hero-counter-row{justify-content:flex-start;gap:2rem;}
-  /* Grids stack */
-  .chi-grid,.sedi-grid{grid-template-columns:1fr;}
-  /* Pickup padding smaller */
-  .pickup-card{padding:1.25rem;}
+  .store-status{display:none !important;}
+  /* Nav inner no overflow */
+  .nav-inner{overflow:hidden;}
+  /* Body: room for mobile bar */
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px));}
+  /* Dark toggle: smaller, above bar */
+  .dark-toggle{bottom:calc(64px + env(safe-area-inset-bottom,0px) + .75rem);right:.8rem;width:36px;height:36px;font-size:.95rem;}
   /* Footer stack */
   .footer-top{flex-direction:column;gap:1.5rem;}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;}
@@ -929,8 +916,10 @@ html,body{overflow-x:hidden;}
   .scroll-hint{display:none;}
   /* Geo banner position */
   .geo-banner{top:60px;}
-  /* Nav: no desktop links */
-  .nav-links{display:none!important;}
+  /* Pickup card reduced padding */
+  .pickup-card{padding:1.25rem;}
+  /* FAQ font size */
+  #faq .faq-q{font-size:1.05rem;}
 }
 @media(max-width:360px){
   h1{font-size:clamp(2.6rem,11vw,3.5rem);}
@@ -1083,11 +1072,19 @@ html,body{overflow-x:hidden;}
 }
 .savings-total em{color:rgba(255,255,255,.35);font-style:italic;display:block;font-size:.85rem;margin-top:.3rem;text-transform:none;letter-spacing:.02em;font-weight:400;}
 
-/* Mobile savings: hide price labels, smaller bars */
+/* Mobile savings: layout adjustments */
 @media(max-width:600px){
-  .savings-bar-label{width:60px;font-size:.58rem;}
-  .savings-price{font-size:.65rem;right:-3rem;}
+  .savings-bar-wrap{flex-wrap:wrap;gap:.4rem;}
+  .savings-bar-label{width:100%;font-size:.58rem;} /* full width label above bar */
+  .savings-bar{overflow:hidden;} /* clip price label on mobile */
+  .savings-price{
+    position:static;transform:none; /* take it out of absolute flow */
+    display:inline-block;margin-left:.5rem;
+    font-size:.65rem;
+  }
+  .savings-bar-wrap{align-items:flex-start;}
   .savings-row{padding:.9rem 1rem;}
+  .savings-table{gap:1rem;}
 }
 
 /* ─── NAV STORE STATUS - mobile bug fix ─── */
