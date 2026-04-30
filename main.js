@@ -543,6 +543,145 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
   obs.observe(section);
 })();
 
+// ─── OFFERTA DELLA SETTIMANA ───
+(function initOfferta() {
+  const deals = [
+    {
+      name: 'Set Padelle<br><em>Antiaderenti</em>',
+      desc: 'Due padelle antiaderenti 20cm + 28cm, coperchio incluso. Fondo spesso, manici ergonomici in silicone.',
+      img: 'assets/images/product-padelle.png',
+      old: '~€45', price: '~€18', pct: '-60%'
+    },
+    {
+      name: 'Set Tazze<br><em>Colorate</em>',
+      desc: 'Set 4 tazze in ceramica colorata, design moderno. Perfette per colazione o regali dell\'ultimo minuto.',
+      img: 'assets/images/product-4.png',
+      old: '~€25', price: '~€9', pct: '-64%'
+    },
+    {
+      name: 'Organizer<br><em>Scrivania</em>',
+      desc: 'Organizer in bambù con scomparti per penne, forbici, post-it e porta-telefono. Ordine garantito.',
+      img: 'assets/images/product-3.png',
+      old: '~€28', price: '~€11', pct: '-61%'
+    },
+    {
+      name: 'Kit Pulizia<br><em>Casa Completo</em>',
+      desc: 'Set professionale per la pulizia di tutta la casa. Spazzole, panni microfibra, accessori multiuso.',
+      img: 'assets/images/product-pulizia.png',
+      old: '~€30', price: '~€12', pct: '-60%'
+    },
+    {
+      name: 'Portaspezie<br><em>Girevole</em>',
+      desc: 'Portaspezie rotante in acciaio inox con 12 barattolini in vetro. Salva spazio, elegante.',
+      img: 'assets/images/product-5.png',
+      old: '~€35', price: '~€14', pct: '-60%'
+    },
+    {
+      name: 'Set Contenitori<br><em>Cucina</em>',
+      desc: 'Set contenitori ermetici colorati per pasta, riso, farina. Impilabili, etichettabili, pratici.',
+      img: 'assets/images/product-organizer.png',
+      old: '~€20', price: '~€8', pct: '-60%'
+    },
+    {
+      name: 'Dispenser<br><em>Bagno Set</em>',
+      desc: 'Set accessori bagno in resina: dispenser, portaspazzolino, portasapone. Design moderno.',
+      img: 'assets/images/product-bagno.png',
+      old: '~€22', price: '~€9', pct: '-59%'
+    }
+  ];
 
+  // Pick deal based on ISO week number (rotates weekly)
+  const weekNum = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
+  const deal = deals[weekNum % deals.length];
 
+  // Apply to DOM
+  const img = document.getElementById('offerta-img');
+  const nameEl = document.getElementById('offerta-name');
+  const descEl = document.getElementById('offerta-desc');
+  const oldEl = document.getElementById('offerta-old');
+  const priceEl = document.getElementById('offerta-price');
+  const pctBadge = document.getElementById('offerta-pct-badge');
+  const pctLabel = document.getElementById('offerta-pct-label');
+  const weekEl = document.getElementById('offerta-week-num');
 
+  if (img) img.src = deal.img;
+  if (nameEl) nameEl.innerHTML = deal.name;
+  if (descEl) descEl.textContent = deal.desc;
+  if (oldEl) oldEl.textContent = deal.old;
+  if (priceEl) priceEl.textContent = deal.price;
+  if (pctBadge) pctBadge.textContent = deal.pct;
+  if (pctLabel) pctLabel.textContent = deal.pct;
+  if (weekEl) weekEl.textContent = (weekNum % 52) + 1;
+
+  // Countdown to next Monday 00:00
+  function updateCountdown() {
+    const now = new Date();
+    const nextMonday = new Date(now);
+    const day = now.getDay(); // 0=Sun, 1=Mon...
+    const daysUntilMonday = day === 0 ? 1 : (8 - day);
+    nextMonday.setDate(now.getDate() + daysUntilMonday);
+    nextMonday.setHours(0, 0, 0, 0);
+    const diff = nextMonday - now;
+    if (diff <= 0) return;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    const dEl = document.getElementById('cd-days');
+    const hEl = document.getElementById('cd-hours');
+    const mEl = document.getElementById('cd-min');
+    const sEl = document.getElementById('cd-sec');
+    if (dEl) dEl.textContent = d;
+    if (hEl) hEl.textContent = pad(h);
+    if (mEl) mEl.textContent = pad(m);
+    if (sEl) sEl.textContent = pad(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+})();
+
+// ─── PRODUCT CATEGORY FILTER ───
+(function initProdFilter() {
+  const filterBar = document.getElementById('prod-filter-bar');
+  if (!filterBar) return;
+  const cards = document.querySelectorAll('.prod-card');
+  const catMap = {
+    'cucina': ['prod-2', 'prod-4', 'prod-6', 'prod-8', 'prod-9'],
+    'bagno':  ['prod-3', 'prod-5', 'prod-7', 'prod-10'],
+    'gadget': ['prod-1', 'prod-7']
+  };
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.prod-filter-btn');
+    if (!btn) return;
+    filterBar.querySelectorAll('.prod-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        const allowed = catMap[filter] || [];
+        card.classList.toggle('hidden', !allowed.includes(card.id));
+      }
+    });
+  });
+})();
+
+// ─── HERO PARALLAX ───
+(function initParallax() {
+  const heroImg = document.querySelector('.hero-img-wrap img');
+  if (!heroImg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      if (scrollY < window.innerHeight * 1.5) {
+        heroImg.style.transform = `translateY(${scrollY * 0.15}px)`;
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }, { passive: true });
+})();

@@ -383,6 +383,12 @@
     <div class="label rv">Sempre Disponibili</div>
     <h2 id="venduti-heading" class="rv d1">I più<br>venduti.</h2>
     <p class="drag-hint">Trascina per esplorare</p>
+    <div class="prod-filter-bar" id="prod-filter-bar" role="group" aria-label="Filtra per categoria">
+      <button class="prod-filter-btn active" data-filter="all" id="filter-all">Tutti</button>
+      <button class="prod-filter-btn" data-filter="cucina" id="filter-cucina">Cucina</button>
+      <button class="prod-filter-btn" data-filter="bagno" id="filter-bagno">Bagno &amp; Pulizia</button>
+      <button class="prod-filter-btn" data-filter="gadget" id="filter-gadget">Gadget</button>
+    </div>
     <div class="drag-scroll" id="drag-scroll">
       <article class="prod-card" id="prod-1">
         <div class="prod-img"><img src="assets/images/product-1.png" alt="Lampada Touch LED" loading="lazy"></div>
@@ -468,6 +474,40 @@
     <p style="text-align:center;color:var(--muted);margin-top:2rem;font-size:.95rem;" class="rv">
       Solo 10 dei nostri <strong>10.000+ articoli</strong>. Vieni a scoprire tutto il resto.
     </p>
+  </div>
+</section>
+
+<!-- ═══ OFFERTA DELLA SETTIMANA ═══ -->
+<section id="offerta" aria-labelledby="offerta-heading">
+  <div class="container">
+    <div class="offerta-grid">
+      <div class="offerta-img-wrap rv">
+        <img src="assets/images/product-padelle.png" alt="Offerta della settimana" id="offerta-img" loading="lazy">
+        <div class="offerta-discount-badge" id="offerta-pct-badge">-60%</div>
+        <div class="offerta-week-tag">Settimana #<span id="offerta-week-num"></span></div>
+      </div>
+      <div class="offerta-content rv d1">
+        <div class="offerta-label">Offerta della Settimana</div>
+        <h2 id="offerta-heading"><span id="offerta-name">Set Padelle<br><em>Antiaderenti</em></span></h2>
+        <p class="offerta-desc" id="offerta-desc">Due padelle antiaderenti 20cm + 28cm, coperchio incluso. Fondo spesso, manici ergonomici in silicone. Ideali per cucinare ogni giorno.</p>
+        <div class="offerta-pricing">
+          <span class="offerta-old" id="offerta-old">~&euro;45</span>
+          <span class="offerta-price" id="offerta-price">~&euro;18</span>
+          <span class="offerta-pct" id="offerta-pct-label">-60%</span>
+        </div>
+        <div class="offerta-countdown">
+          Scade tra:&nbsp;
+          <span class="cd-block"><span class="cd-num" id="cd-days">0</span><span class="cd-lab">giorni</span></span>
+          <span class="cd-sep">:</span>
+          <span class="cd-block"><span class="cd-num" id="cd-hours">0</span><span class="cd-lab">ore</span></span>
+          <span class="cd-sep">:</span>
+          <span class="cd-block"><span class="cd-num" id="cd-min">0</span><span class="cd-lab">min</span></span>
+          <span class="cd-sep">:</span>
+          <span class="cd-block"><span class="cd-num" id="cd-sec">0</span><span class="cd-lab">sec</span></span>
+        </div>
+        <a href="#negozi" class="btn btn-red btn-mag" id="offerta-cta-btn">Vieni a prenderlo &rarr;</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -626,6 +666,48 @@
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false" id="fq5">Avete un sito e-commerce? <span class="faq-icon" aria-hidden="true">+</span></button>
         <div class="faq-a" role="region" aria-labelledby="fq5"><div class="faq-a-inner">No. E ne siamo fieri. Con 10.000 prodotti, catalogarli tutti online richiederebbe un team di 50 persone e un anno di lavoro. <em>Vieni in negozio: è più divertente.</em></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER / WA CTA ═══ -->
+<section id="newsletter" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="label rv">Resta Aggiornato</div>
+      <h2 id="newsletter-heading" class="rv d1">Non perdere<br><em>nessuna offerta.</em></h2>
+      <p class="rv d2">Ogni settimana nuove offerte, novit&agrave; e occasioni. Scrivici su WhatsApp: ti aggiungiamo al gruppo informativo e ricevi le promozioni in anteprima.</p>
+      <div class="newsletter-actions rv d3">
+        <a href="https://wa.me/390240136992?text=Ciao%21%20Vorrei%20essere%20aggiunto%20al%20gruppo%20offerte%20%F0%9F%9B%8D%EF%B8%8F" target="_blank" rel="noopener noreferrer" class="newsletter-wa-btn" id="newsletter-wa-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Unisciti al Gruppo
+        </a>
+        <a href="tel:+390240136992" class="btn btn-outline btn-mag" id="newsletter-call-btn">&#9742; Chiamaci</a>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq6">Quali sono gli orari del negozio di Pogliano Milanese? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq6"><div class="faq-a-inner">Lunedi&agrave; &ndash; Domenica, 09:00 &ndash; 19:30 <em>senza pausa</em>. S&igrave;, anche la domenica. Anche a Natale ci siamo quasi sempre. Controlla sempre il badge &ldquo;Aperto ora&rdquo; in cima alla pagina.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq7">Fate consegne a domicilio o spedizioni? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq7"><div class="faq-a-inner">No. Non facciamo e-commerce n&eacute; consegne. Siamo un negozio fisico &mdash; ma c&apos;&egrave; un motivo: vuoi trovare quel prodotto strano a &euro;2,90 che <em>non trovi online</em>? Solo venendo in negozio.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq8">Accettate pagamenti con carta o bancomat? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq8"><div class="faq-a-inner">S&igrave;. Carta di credito, bancomat, Satispay. E ovviamente contanti. Non accettiamo assegni &mdash; ma non li accetta pi&ugrave; nessuno.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq9">Come arrivo al negozio di Pogliano Milanese? &Egrave; raggiungibile in auto? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq9"><div class="faq-a-inner">Siamo in <em>Via Monsignor Paleari 90, Pogliano Milanese (MI)</em>. Parcheggio in zona &mdash; non vicinissimo, ma si trova. Da Rho, Nerviano, Parabiago siamo a 5&ndash;10 minuti. Usa Google Maps per le indicazioni.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq10">Posso chiamare per sapere se avete un prodotto specifico? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq10"><div class="faq-a-inner">Certamente. Chiama il <a href="tel:+390240136992">02 4013 6992</a> e descrivi cosa cerchi. Non garantiamo una risposta in tempo reale (siamo occupati a servire i clienti in negozio), ma facciamo del nostro meglio.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" id="fq11">Vendete anche all&rsquo;ingrosso o a prezzi speciali per gruppi? <span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a" role="region" aria-labelledby="fq11"><div class="faq-a-inner">Per ordini grandi o acquisti ricorrenti, parliamone. <em>Scrivici su WhatsApp</em> con i dettagli di cosa ti serve. Non promettiamo miracoli, ma siamo molto ragionevoli.</div></div>
       </div>
     </div>
   </div>
