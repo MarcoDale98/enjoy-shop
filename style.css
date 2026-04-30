@@ -129,6 +129,75 @@
 
 /* GEO BANNER */
 [data-theme="dark"] .geo-banner{background:#1a1a1a;border-bottom-color:rgba(255,255,255,.08);color:#ccc;}
+
+/* ─── DEEP DARK FIXES ─── */
+/* #onesta h2 was inheriting var(--white) → invisible */
+[data-theme="dark"] #onesta h2{color:#e8e8e8;}
+[data-theme="dark"] #onesta h2 em{color:var(--red);}
+
+/* Flip card BACK: red bg → keep white text */
+[data-theme="dark"] .flip-back p{color:#fff;}
+
+/* Nav links in dark */
+[data-theme="dark"] .nav-links a{color:rgba(255,255,255,.6);}
+[data-theme="dark"] .nav-links a:hover{color:#fff;}
+[data-theme="dark"] .nav-logo-text{color:#e8e8e8;}
+
+/* Hero section: counter boxes, subtext */
+[data-theme="dark"] .hero-counter-box{background:#1e1e1e;border-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .hero-sub{color:rgba(255,255,255,.65);}
+
+/* Chi siamo headings and text */
+[data-theme="dark"] .chi-text h2{color:#e8e8e8;}
+[data-theme="dark"] .chi-text p{color:#999;}
+[data-theme="dark"] .fact-txt strong{color:#e8e8e8;}
+
+/* Savings bars */
+[data-theme="dark"] .savings-bar-them-bar{background:rgba(255,255,255,.06);}
+[data-theme="dark"] .savings-bar-us-bar{background:rgba(212,43,43,.25);}
+[data-theme="dark"] .savings-bar-label{color:#999;}
+[data-theme="dark"] .savings-total{color:#e8e8e8;}
+
+/* Pickup irony quotes */
+[data-theme="dark"] .pickup-card-irony{color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.07);}
+[data-theme="dark"] .pickup-card-tag{color:rgba(255,255,255,.4);}
+
+/* Countdown bar */
+[data-theme="dark"] .store-countdown{background:#0a0a0a;border-bottom-color:rgba(255,153,0,.2);}
+
+/* Slot machine heading */
+[data-theme="dark"] #slot-machine h2{color:#e8e8e8;}
+
+/* Reviews intro */
+[data-theme="dark"] .reviews-intro{color:#999;}
+[data-theme="dark"] .review-text{color:#bbb;}
+[data-theme="dark"] .review-meta{color:#666;}
+
+/* FAQ heading */
+[data-theme="dark"] #faq h2{color:#e8e8e8;}
+
+/* Mob menu overlay */
+[data-theme="dark"] .mob-menu{background:#0d0d0d;}
+[data-theme="dark"] .mob-menu a{color:#e8e8e8;}
+
+/* Scrollbar dark */
+[data-theme="dark"] .drag-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.05);}
+
+/* Amazon/BRT btn colors consistent */
+[data-theme="dark"] .btn-amazon{background:#FF9900;color:#000;}
+[data-theme="dark"] .btn-brt{background:#E30613;color:#fff;}
+
+/* Reviews CTA section */
+[data-theme="dark"] .reviews-cta{border-top-color:rgba(255,255,255,.1);}
+[data-theme="dark"] .reviews-cta p{color:#777;}
+
+/* Drag hint text */
+[data-theme="dark"] .drag-hint{color:#666;}
+
+/* Savings section heading */
+[data-theme="dark"] #risparmio h2{color:#e8e8e8;}
+[data-theme="dark"] #risparmio .label{color:var(--red);}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--cream);color:var(--black);font-family:var(--font-b);font-weight:400;line-height:1.6;overflow-x:hidden;}
