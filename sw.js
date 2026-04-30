@@ -1,25 +1,43 @@
 /* ═══════════════════════════════════════
-   ENJOY SHOP — Service Worker v1
+   ENJOY SHOP — Service Worker v2
    Cache-first per assets statici
    ═══════════════════════════════════════ */
 
-const CACHE = 'enjoy-shop-v1';
+const CACHE = 'enjoy-shop-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/style.css',
   '/main.js',
   '/manifest.json',
+  '/404.html',
   '/assets/images/logo.png',
   '/assets/images/hero-bg.png',
+  '/assets/images/og-preview.png',
+  /* Prodotti */
   '/assets/images/product-1.png',
   '/assets/images/product-2.png',
   '/assets/images/product-3.png',
-  '/assets/images/universo-ricevere.png',
+  '/assets/images/product-4.png',
+  '/assets/images/product-5.png',
+  '/assets/images/product-padelle.png',
+  '/assets/images/product-organizer.png',
+  '/assets/images/product-bagno.png',
+  '/assets/images/product-pulizia.png',
+  /* Categorie */
+  '/assets/images/universo-cucina.png',
   '/assets/images/universo-cura.png',
   '/assets/images/universo-smartworking.png',
   '/assets/images/universo-sonno.png',
-  '/assets/images/universo-gusto.png'
+  '/assets/images/universo-giardino.png',
+  '/assets/images/universo-arredamento.png',
+  /* Avatar recensioni */
+  '/assets/images/avatar-anna.jpg',
+  '/assets/images/avatar-francesco.jpg',
+  '/assets/images/avatar-giorgio.jpg',
+  '/assets/images/avatar-luca.jpg',
+  '/assets/images/avatar-maria.jpg',
+  '/assets/images/avatar-sara.jpg'
 ];
 
 // Install: pre-cache tutti gli asset

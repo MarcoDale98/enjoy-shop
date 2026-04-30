@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.enjoyshop-pogliano.it/sitemap.xml
+Sitemap: https://enjoyshop-pogliano.it/sitemap.xml
