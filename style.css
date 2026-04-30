@@ -411,7 +411,7 @@ body{transition:background .35s var(--ease),color .35s var(--ease);}
 
 /* ─── DARK TOGGLE ─── */
 .dark-toggle{
-  position:fixed;bottom:5rem;right:1.2rem;z-index:850;
+  position:fixed;bottom:calc(1.4rem + 44px + .6rem);right:1.2rem;z-index:860;
   width:42px;height:42px;border-radius:50%;
   background:var(--black);color:var(--white);
   border:1.5px solid rgba(255,255,255,.12);
@@ -446,8 +446,9 @@ body{transition:background .35s var(--ease),color .35s var(--ease);}
 }
 
 /* ─── WHATSAPP BUTTON ─── */
+/* Moved to BOTTOM-RIGHT, stacked below dark toggle */
 .wa-btn{
-  position:fixed;bottom:1.4rem;left:1.2rem;z-index:850;
+  position:fixed;bottom:1.4rem;right:1.2rem;z-index:860;
   display:flex;align-items:center;gap:.5rem;
   background:#25D366;color:#fff;
   font-family:var(--font-h);font-size:.88rem;font-weight:700;
@@ -941,8 +942,11 @@ html,body{overflow-x:hidden;}
   .nav-inner{overflow:hidden;}
   /* Body: room for mobile bar */
   body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px));}
-  /* Dark toggle: smaller, above bar */
-  .dark-toggle{bottom:calc(64px + env(safe-area-inset-bottom,0px) + .75rem);right:.8rem;width:36px;height:36px;font-size:.95rem;}
+  /* Dark toggle: smaller, anchored just above mobile bar */
+  .dark-toggle{
+    bottom:calc(64px + env(safe-area-inset-bottom,0px) + .6rem);
+    right:.8rem;width:36px;height:36px;font-size:.95rem;
+  }
   /* Footer stack */
   .footer-top{flex-direction:column;gap:1.5rem;}
   .footer-bottom{flex-direction:column;gap:.5rem;text-align:center;}

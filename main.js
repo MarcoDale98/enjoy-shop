@@ -196,14 +196,17 @@ if (glitchEl) glitchEl.setAttribute('data-text', glitchEl.textContent);
   // Mostra dopo 1.5s (dopo la splash)
   setTimeout(() => banner.classList.add('visible'), 2500);
 
-  document.getElementById('cookie-accept')?.addEventListener('click', () => {
-    localStorage.setItem('enjoy-cookies', 'accepted');
+  function dismissBanner(choice) {
+    localStorage.setItem('enjoy-cookies', choice);
     banner.classList.remove('visible');
-  });
-  document.getElementById('cookie-decline')?.addEventListener('click', () => {
-    localStorage.setItem('enjoy-cookies', 'declined');
-    banner.classList.remove('visible');
-  });
+    // After transition, collapse to natural position
+    setTimeout(() => {
+      banner.style.display = 'none';
+      document.body.classList.add('cookies-accepted');
+    }, 550); // matches transition duration
+  }
+  document.getElementById('cookie-accept')?.addEventListener('click', () => dismissBanner('accepted'));
+  document.getElementById('cookie-decline')?.addEventListener('click', () => dismissBanner('declined'));
 })();
 
 // ─── CUSTOM CURSOR ───
