@@ -118,10 +118,11 @@ h3{font-size:clamp(1.5rem,3vw,2.2rem);}
 
 .hero-sub{font-size:clamp(.95rem,2.5vw,1.15rem);color:var(--muted);margin-bottom:1.5rem;max-width:460px;line-height:1.7;}
 .hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.25rem;}
-/* Mobile: sticker row scrollable, no wrap */
+/* Mobile: sticker row — width:100%, horizontal scroll, no wrap */
 .hero-sticker-row{
   display:flex;gap:.5rem;flex-wrap:nowrap;
-  overflow-x:auto;overflow-y:visible;
+  overflow-x:auto;overflow-y:clip; /* clip prevents layout bleed */
+  width:100%;max-width:100%;min-width:0; /* constrain to grid cell */
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
   margin-bottom:2rem;
@@ -580,7 +581,8 @@ body::after{
 /* ─── MOBILE BOTTOM CTA BAR ─── */
 .mobile-cta-bar{
   display:flex;
-  position:fixed;bottom:0;left:0;right:0;z-index:900;
+  position:fixed;bottom:0;left:0;right:0;
+  z-index:1000; /* highest — always above cookie banner and everything */
   background:var(--black);
   border-top:2px solid rgba(255,255,255,.08);
   padding-bottom:env(safe-area-inset-bottom);
@@ -1072,19 +1074,12 @@ html,body{overflow-x:hidden;}
 }
 .savings-total em{color:rgba(255,255,255,.35);font-style:italic;display:block;font-size:.85rem;margin-top:.3rem;text-transform:none;letter-spacing:.02em;font-weight:400;}
 
-/* Mobile savings: layout adjustments */
+/* Mobile savings: simplify layout — hide absolute price labels, bars tell the story */
 @media(max-width:600px){
-  .savings-bar-wrap{flex-wrap:wrap;gap:.4rem;}
-  .savings-bar-label{width:100%;font-size:.58rem;} /* full width label above bar */
-  .savings-bar{overflow:hidden;} /* clip price label on mobile */
-  .savings-price{
-    position:static;transform:none; /* take it out of absolute flow */
-    display:inline-block;margin-left:.5rem;
-    font-size:.65rem;
-  }
-  .savings-bar-wrap{align-items:flex-start;}
+  .savings-price{display:none;} /* clean on mobile — bars convey the comparison */
   .savings-row{padding:.9rem 1rem;}
   .savings-table{gap:1rem;}
+  .savings-bar-label{font-size:.6rem;}
 }
 
 /* ─── NAV STORE STATUS - mobile bug fix ─── */
