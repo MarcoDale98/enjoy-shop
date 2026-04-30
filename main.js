@@ -646,11 +646,6 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
   const filterBar = document.getElementById('prod-filter-bar');
   if (!filterBar) return;
   const cards = document.querySelectorAll('.prod-card');
-  const catMap = {
-    'cucina': ['prod-2', 'prod-4', 'prod-6', 'prod-8', 'prod-9'],
-    'bagno':  ['prod-3', 'prod-5', 'prod-7', 'prod-10'],
-    'gadget': ['prod-1', 'prod-7']
-  };
   filterBar.addEventListener('click', e => {
     const btn = e.target.closest('.prod-filter-btn');
     if (!btn) return;
@@ -661,8 +656,8 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
       if (filter === 'all') {
         card.classList.remove('hidden');
       } else {
-        const allowed = catMap[filter] || [];
-        card.classList.toggle('hidden', !allowed.includes(card.id));
+        const cardFilter = card.dataset.filter || '';
+        card.classList.toggle('hidden', cardFilter !== filter);
       }
     });
   });
@@ -672,9 +667,12 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
 (function initParallax() {
   const heroImg = document.querySelector('.hero-img-wrap img');
   if (!heroImg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Disable CSS transition on this element to avoid lag
+  heroImg.style.transition = 'none';
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (ticking) return;
+    ticking = true;
     requestAnimationFrame(() => {
       const scrollY = window.scrollY;
       if (scrollY < window.innerHeight * 1.5) {
@@ -682,6 +680,5 @@ document.querySelectorAll('.rv-left, .rv-right, .rv-scale').forEach(el => roSide
       }
       ticking = false;
     });
-    ticking = true;
   }, { passive: true });
 })();

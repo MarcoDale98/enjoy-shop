@@ -1448,8 +1448,8 @@ html,body{overflow-x:hidden;}
 [data-theme="dark"] .prod-filter-btn:hover,[data-theme="dark"] .prod-filter-btn.active{
   background:var(--red);color:#fff;border-color:var(--red);
 }
-.prod-card{transition:transform .3s var(--ease),box-shadow .3s,opacity .3s,max-height .4s;}
-.prod-card.hidden{opacity:0;pointer-events:none;flex:0 0 0;overflow:hidden;padding:0;border:none;margin:0;}
+.prod-card{transition:transform .3s var(--ease),box-shadow .3s;}
+.prod-card.hidden{display:none !important;}
 
 /* ═══════════════════════════════════════
    HERO PARALLAX
